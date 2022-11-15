@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="static/style.css">
+
+    
 
 </head>
 <body>
@@ -21,7 +23,9 @@
 
     <a href="#" class="logo"> <i class="fas fa-heartbeat"></i> medcare. </a>
 
+    
     <nav class="navbar">
+        <a href="{{ url_for('login') }}" >login</a>
         <a href="#home">home</a>
         <a href="#services">services</a>
         <a href="#about">about</a>
@@ -448,23 +452,8 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- custom js file link  -->
-<script src="script.js"></script>
+<script src="static/script.js"></script>
 
 </body>
 </html>
