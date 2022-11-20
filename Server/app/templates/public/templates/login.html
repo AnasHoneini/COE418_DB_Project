@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Login Form </title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <div class="container">
+        <form class="form" id="login">
+            <h1 class="title">Log in</h1>
+            <div class="message message--error"></div>
+            <div class="input-group">
+                <input type="text" class="input" autofocus placeholder="Username or email">
+                <div class="input-error-message"></div>
+            </div>
+            <div class="input-group">
+                <input type="password" class="input" autofocus placeholder="Password">
+                <div class="input-error-message"></div>
+            </div>
+            <button class="button" type="submit">Log in</button>
+            
+            <p class="text">
+                <a class="link" href="./" id="linkCreateAccount">Don't have an account? Create a new account</a>
+            </p>
+        </form>
+        <form class="hidden" id="createAccount">
+            <h1 class="title">Create Account</h1>
+            <div class="message message--error"></div>
+            <div class="input-group">
+                <input type="text" id="signupUsername" class="input" autofocus placeholder="Username">
+                <div class="input-error-message"></div>
+            </div>
+            <div class="input-group">
+                <input type="text" class="input" autofocus placeholder="Email Address">
+                <div class="input-error-message"></div>
+            </div>
+            <div class="input-group">
+                <input type="password" class="input" autofocus placeholder="Password">
+                <div class="input-error-message"></div>
+            </div>
+            <div class="input-group">
+                <input type="password" class="input" autofocus placeholder="Confirm password">
+                <div class="input-error-message"></div>
+            </div>
+            <button class="button" type="submit">Continue</button>
+            <p class="text">
+                <a class="link" href="./" id="linkLogin">Already have an account? Sign in</a>
+            </p>
+            
+        </form>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>
