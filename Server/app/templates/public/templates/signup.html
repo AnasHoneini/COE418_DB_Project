@@ -64,6 +64,11 @@
         </p>
       </form>
     </div>
+    
+    {% include "/public/templates/base/header.html" %} 
+    
+    {% block content %} {% endblock %}
+
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
   </body>
 </html>

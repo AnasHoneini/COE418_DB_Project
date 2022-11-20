@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="eng">
-<head>
+    <head>
+        <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <title>Login Form </title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
-    <nav class="navbar">
-        <ul>
-        <li><a href="{{ url_for('home') }}">home</a></li>
-    </nav>    
-</head>
-<body>
-    <div class="container">
+        <title>Login Form </title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+    </head>
+    <body>
+        {% include "/public/templates/base/header.html" %} 
+            
+        {% block content %} {% endblock %}   
+            
+            <div class="container">
         <form class="form" id="login">
             <h1 class="title">Log in</h1>
             <div class="message message--error"></div>
@@ -30,6 +31,8 @@
             </p>
         </form>
     </div>
+    
+
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
