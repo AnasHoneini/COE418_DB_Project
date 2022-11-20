@@ -4,38 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+    <title>Home</title>
 
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
     
 
 </head>
 <body>
     
-
-<header class="header">
-
-    <a href="#" class="logo"> <img src="444.png"></i> LebMedCenter </a>
-
+    {% include "/public/templates/base/header.html" %} 
     
-    
-    <nav class="navbar">
-        <ul>
-        <li><a href="#home">home</a></li>
-        <li><a href="#services">services</a></li>
-        <li><a href="#about">about</a></li>
-        <li><a href="#doctors">doctors</a></li>
-        <li><a href="#book">book</a></li>
-        <li><a href="#review">review</a></li>
-        <li><a href="{{ url_for('login') }}" >Login to patient's account</a></li>
-    </ul>
-    </nav>
-</header>
+    {% block content %} {% endblock %}
+
 
 
 <header class="home" id="home">
@@ -130,7 +115,7 @@
         <div class="credit"> created by <span>mr. web designer</span> | all rights reserved </div>
     
     </section>
-    <script src="script.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
 </body>
 </html>
