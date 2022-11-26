@@ -8,7 +8,7 @@ body {
     --color-error: #cc3333;
     --color-success: #4bb544;
     --border-radius: 5% ;
-    --box-shadow:  box-shadow: 0 0 40px rgba(0,0,0.2);
+   
 
     margin: 0;
     height: 100vh;
@@ -16,15 +16,15 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 18px;
-    background: url(./background.jpg);
+    background: url('../img/bookingwallpaper.jpg');
     background-size: cover;
 }
+
 .container {
     width: 400px;
     max-width: 400px;
     margin: 1rem;
     padding: 2rem;
-    box-shadow: 0 0 40px rgba(0,0,0.2);
     border-radius: 5%;
     background: #ffffff;
 }

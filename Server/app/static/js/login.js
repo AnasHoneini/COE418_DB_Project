@@ -21,19 +21,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const createAccount = document.querySelector("#createAccount");
 
     document.querySelector("#linkCreateAccount").addEventListener("click", e => {
-        e.preventDefault();
-        login.classList.add("hidden");
-        createAccount.classList.remove("hidden");
+        
     });
 
     document.querySelector("#linkLogin").addEventListener("click", e => {
-        e.preventDefault();
-        login.classList.remove("hidden");
-        createAccount.classList.add("hidden");
+      
     });
 
     login.addEventListener("submit", e => {
-        e.preventDefault();
+        
 
         // Perform your AJAX/Fetch login
 

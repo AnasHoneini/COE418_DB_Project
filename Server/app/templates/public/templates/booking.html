@@ -8,6 +8,9 @@
 </head>
 
 <body>
+    {% include "/public/templates/base/sidebar.html" %} 
+            
+    {% block content %} {% endblock %}  
     <div class= "container" >
         <form class="form" id="book">
             <h1 class="title">Book Appointment</h1>

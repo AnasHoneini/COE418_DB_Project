@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
     </head>
     <body>
-        {% include "/public/templates/base/header.html" %} 
+        {% include "/public/templates/base/sidebar.html" %} 
             
         {% block content %} {% endblock %}   
             
@@ -33,6 +33,6 @@
     </div>
     
 
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
 </body>
 </html>

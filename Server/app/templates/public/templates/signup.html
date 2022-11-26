@@ -65,10 +65,10 @@
       </form>
     </div>
     
-    {% include "/public/templates/base/header.html" %} 
+    {% include "/public/templates/base/sidebar.html" %} 
     
     {% block content %} {% endblock %}
 
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
   </body>
 </html>
