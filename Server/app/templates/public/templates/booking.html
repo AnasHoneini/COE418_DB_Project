@@ -9,11 +9,11 @@
 
 <body>
     <div class= "container" >
-        <form class="form" id="book">
+        <form class="form" id="book" method="POST">
             <h1 class="title">Book Appointment</h1>
             <div class="message message--error"></div>
             <div class="input-group">
-                <input type="text" class="input" autofocus placeholder="Patient name">
+                <input type="text" class="input" id = "name" autofocus placeholder="Patient name">
                 <div class="input-error-message"></div>
             </div>
             <div class="input-group">
@@ -21,22 +21,38 @@
                 <div class="input-error-message"></div>
             </div>
             <div class="input-group">
-                <input type="text" class="input" autofocus placeholder="Phone Number">
+                <input type="text" class="input" id="PN" autofocus placeholder="Phone Number">
                 <div class="input-error-message"></div>
             </div>
             <div class="input-group">
-                <input type="text" class="input" autofocus placeholder="Details for appointment">
+                <input type="text" class="input" id="MSG" autofocus placeholder="Details for appointment">
                 <div class="input-error-message"></div>
             </div>
             <div class="input-group">
                 <input type="date" class="input" autofocus placeholder="Date">
                 <div class="input-error-message"></div>
             </div>
-            <button class="button" type="submit">Continue</button>
+
+            <button class="button" type="button" onclick="submit_entry();">Continue</button>
+
             <p class="text">
                 <a class="link" href="./" id="linkLogin">New patient? Sign up</a> <br>
                 <a class="link" href="./" id="linkbookroom">Book a room?</a>
             </p>
         </form>
-
+    </div>
+    <script>
+        function submit_entry() {
+        
+        var name = document.getElementById("name");
+        var PN = document.getElementById("PN");
+        var message = document.getElementById("MSG");
+        var entry = {
+            name:name.value,
+            message:message.value
+        };
+        console.log(entry);
+}
+    </script>
 </body>
+</html>
