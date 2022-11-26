@@ -8,47 +8,49 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='css/form.css') }}"
       />
-      <nav class="navbar">
-          <ul>
-          <li><a href="{{ url_for('home') }}">home</a></li>
-      </nav> 
+      {% include "/public/templates/base/header.html" %}  
   </head>
   
   <body>
     <div class="container">
-        <form class="form" id="login">
+        <form class="form" id="login" action = "/signup" method = "POST">
             <h1 class="title">Create Account</h1>
         <div class="message message--error"></div>
         <div class="input-group">
-          <input
+          <label> Username </label>
+            <input
             type="text"
             id="signupUsername"
             class="input"
             autofocus
-            placeholder="Username"
+            placeholder="Username" name="name"
           />
           <div class="input-error-message"></div>
         </div>
         <div class="input-group">
-          <input
-            type="text"
+            <label> Email Address </label>
+            <input
+            type="email"
             class="input"
             autofocus
-            placeholder="Email Address"
+            placeholder="Email Address" name="email"
           />
           <div class="input-error-message"></div>
         </div>
         <div class="input-group">
-          <input
+            <label> Password </label>
+            <input
             type="password"
             class="input"
             autofocus
             placeholder="Password"
+            name = "password"
           />
           <div class="input-error-message"></div>
         </div>
         <div class="input-group">
-          <input
+            <label> Confirm Password </label>
+            <input
             type="password"
             class="input"
             autofocus
@@ -56,7 +58,7 @@
           />
           <div class="input-error-message"></div>
         </div>
-        <button class="button" type="submit">Continue</button>
+        <button class="button" type="submit">Sign Up</button>
         <p class="text">
           <a class="link" href="{{ url_for('login') }}" id="linkLogin"
             >Already have an account? Sign in</a
@@ -64,10 +66,10 @@
         </p>
       </form>
     </div>
+
     
-    {% include "/public/templates/base/sidebar.html" %} 
+    {% include "/public/templates/base/header.html" %} 
     
-    {% block content %} {% endblock %}
 
     <script src="{{ url_for('static', filename='js/login.js') }}"></script>
   </body>
