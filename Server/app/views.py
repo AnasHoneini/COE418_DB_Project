@@ -19,20 +19,18 @@ def home():
 
 @app.route('/login', methods=["GET", "POST"])
 def login():
-    
-        
     if request.method == 'POST':
         username = request.form['name']
         password = request.form['password']
         
-        user = my_cursor.execute(f" SELECT * FROM Staff WHERE StaffFirstName = '{username}' ")
+        query = (f"SELECT pass FROM Staff WHERE pass = '{password}'")
+        pass1 = my_cursor.fetchone()[0]
+        
+        usna= my_cursor.execute(f"SELECT StaffFirstName FROM Staff WHERE StaffFirstName = '{username}'")
+        name = my_cursor.fetchone()[0]
 
-        if user ==None:
-                flash('user not found', category='error')
-                return redirect( url_for('login') )
-
-        elif username == user.StaffFirstName and password == user.StaffPhoneNumber:
-            session['username'] = username  # saving session for login
+        if username == name and password == pass1:
+            flash("login successfully")
             return redirect( url_for('home') )
 
         else:
@@ -57,15 +55,34 @@ def login():
 @app.route('/signup', methods=["GET", "POST"])
 def signup():
         if request.method == 'POST':
+            SSN = request.form['SSN']
             username = request.form['name']
             password = request.form['password']
+            confpass=request.form['confpass']
+
+            query = my_cursor.execute(f"SELECT StaffFirstName FROM Staff WHERE StaffFirstName = '{username}' ")
+            existedname = my_cursor.fetchone()
             
+            if existedname != None:
+                if username == str(existedname[0]):
+                    flash('Username already taken')
+                    return redirect( url_for('signup') )
+               
+            if password != confpass:
+                flash('Passwords do not match')
+                return redirect( url_for('signup') )
+
+            elif password == confpass:
+                user = ("INSERT INTO STAFF (staffID,StaffFirstName,StaffLastName,Pass,StaffSpecialization) VALUES (%s,%s,%s,%s,%s)" )
+                my_cursor.execute(user,(SSN,username,username,password, 'das'))
+                db.mydb.commit()
+                flash('Staff Registred Successfully', category='info')
+                return redirect( url_for('login') )
+            else:
+                    
+                return redirect( url_for('signup') )
             
-            user = ("INSERT INTO STAFF (staffID,StaffFirstName,StaffLastName,Pass,StaffSpecialization) VALUES (%s,%s,%s,%s,%s)" )
-            my_cursor.execute(user,(4,username,username,password, 'das'))
-            db.mydb.commit()
                 
-            
             
         return render_template('/public/templates/signup.html')     
 
