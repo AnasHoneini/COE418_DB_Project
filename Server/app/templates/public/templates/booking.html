@@ -16,15 +16,15 @@
             <h1 class="title">Book Appointment</h1>
             <div class="message message--error"></div>
             <div class="input-group">
-                <input type="text" class="input" id = "name" autofocus placeholder="Patient name">
+                <input type="text" class="input" id = "name" autofocus placeholder="Patient name" name = "patname">
                 <div class="input-error-message"></div>
             </div>
             <div class="input-group">
-                <input type="text" class="input" autofocus placeholder="ID">
+                <input type="text" class="input" autofocus placeholder="ID" name = "patID">
                 <div class="input-error-message"></div>
             </div>
             <div class="input-group">
-                <input type="text" class="input" id="PN" autofocus placeholder="Phone Number">
+                <input type="text" class="input" id="PN" autofocus placeholder="Phone Number" name = "patage">
                 <div class="input-error-message"></div>
             </div>
             <div class="input-group">
@@ -36,7 +36,7 @@
                 <div class="input-error-message"></div>
             </div>
 
-            <button class="button" type="button" onclick="submit_entry();">Continue</button>
+            <button class="button" type="button" onclick="submit_entry()">Continue</button>
 
             <p class="text">
                 <a class="link" href="./" id="linkLogin">New patient? Sign up</a> <br>
