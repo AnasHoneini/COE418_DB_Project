@@ -8,10 +8,13 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='css/form.css') }}"
       />
-      {% include "/public/templates/base/header.html" %}  
+      
   </head>
-  
+ 
   <body>
+    {% include "/public/templates/base/sidebar.html" %} 
+            
+    {% block content %} {% endblock %}  
     <div class="container">
         <form class="form" id="signup" action = "/signup" method = "POST">
             <h1 class="title">Create Account</h1>
@@ -33,6 +36,7 @@
             type="email"
             class="input"
             autofocus
+            required
             placeholder="Email Address" name="email"
           />
           <div class="input-error-message"></div>
@@ -43,8 +47,10 @@
             type="password"
             class="input"
             autofocus
+            required
             placeholder="Password"
             name = "password"
+
           />
           <div class="input-error-message"></div>
         </div>
@@ -66,9 +72,6 @@
         </p>
       </form>
     </div>
-
-    
-    {% include "/public/templates/base/header.html" %} 
     
 
     <script src="{{ url_for('static', filename='js/login.js') }}"></script>

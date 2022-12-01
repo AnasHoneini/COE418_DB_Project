@@ -59,35 +59,13 @@ def signup():
         if request.method == 'POST':
             username = request.form['name']
             password = request.form['password']
-            confpass=request.form['confpass']
-
-            query = my_cursor.execute(f"SELECT StaffFirstName FROM Staff WHERE StaffFirstName = '{username}' ")
             
-
-            if query != None:
-                if username == str(query):
-                    flash('Username already taken')
-                    return redirect( url_for('signup') )
-        
-            if password != confpass:
-                flash('Passwords do not match')
-                return redirect( url_for('signup') )
-
-            regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!#%*?&]{6,20}$"
-            pattern = re.compile(regex)
-
-            match = re.search(pattern, password)
-        
-            if match:
-                user = ("INSERT INTO STAFF (staffID,StaffFirstName,Pass,StaffSpecialization) VALUES (%s,%s,%s,%s)" )
-                my_cursor.execute(user,(1,username,password, 'das'))
-                db.mydb.commit()
-                flash('Staff Registred Successfully', category='info')
-                return redirect( url_for('login') )
-            else:
-                flash('Password should contain one Uppercase, one special character, one numeric character')
-                return redirect( url_for('login') )
-
+            
+            user = ("INSERT INTO STAFF (staffID,StaffFirstName,StaffLastName,Pass,StaffSpecialization) VALUES (%s,%s,%s,%s,%s)" )
+            my_cursor.execute(user,(4,username,username,password, 'das'))
+            db.mydb.commit()
+                
+            
             
         return render_template('/public/templates/signup.html')     
 
