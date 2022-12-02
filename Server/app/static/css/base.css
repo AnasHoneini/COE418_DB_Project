@@ -7,10 +7,6 @@ body {
     --color-error: #cc3333;
     --color-success: #4bb544;
     --border-radius: 5% ;
-
-    --midblue: #0084a7;
-    --darkblue: #0a234c;
-    --lightestblue: #72a9c6;
 }
 *{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;

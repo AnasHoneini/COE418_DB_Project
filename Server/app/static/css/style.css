@@ -131,6 +131,10 @@ section:nth-child(even){
     gap:1.5rem;
     padding-top: 10rem;
 }
+
+.home .image{
+}
+
 .home .image img{
     width: 100%;
 }
