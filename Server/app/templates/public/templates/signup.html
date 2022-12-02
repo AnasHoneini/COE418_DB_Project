@@ -41,6 +41,17 @@
           />
           <div class="input-error-message"></div>
         </div>
+          <div class="input-group">
+            <label> SSN </label>
+            <input
+            type="text"
+            class="input"
+            autofocus
+            placeholder="SSN" 
+            name="SSN"
+            />
+          <div class="input-error-message"></div>
+        </div>
         <div class="input-group">
             <label> Password </label>
             <input
@@ -49,8 +60,7 @@
             autofocus
             required
             placeholder="Password"
-            name = "password"
-
+            name = "password" required
           />
           <div class="input-error-message"></div>
         </div>
@@ -70,8 +80,12 @@
             >Already have an account? Sign in</a
           >
         </p>
+        {% with messages = get_flashed_messages() %} {% if messages %} {% for msg in messages %}
+        <p class="messages"> {{ msg }} </p>
+        {% endfor %} {% endif %} {% endwith%}
       </form>
     </div>
+    
     
 
     <script src="{{ url_for('static', filename='js/login.js') }}"></script>

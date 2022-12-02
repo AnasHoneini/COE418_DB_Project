@@ -8,30 +8,39 @@ import re
 
 my_cursor = db.my_cursor
 
-@app.route('/')
+    
+@app.route('/', methods=['GET', 'POST'])
+@app.route('/home')
 def home():
-  #  if 'username' in session:
-        return render_template('public/templates/home.html')
+    #if 'username' in session:
+       return render_template('public/templates/home.html')
     #else:
      #   flash('You are logged out. Please login again to continue')
       #  return redirect( url_for('home') )  
-    
-
 @app.route('/login', methods=["GET", "POST"])
 def login():
-    
-        
+    #if 'username' in session:                # Checking for session login
+     #   return redirect( url_for('home') )
+
     if request.method == 'POST':
         username = request.form['name']
         password = request.form['password']
+        SSN = request.form['SSN']
+
+        idssn= my_cursor.execute(f"SELECT StaffID FROM Staff WHERE StaffFirstName = '{username}'")
+        SSNExcuted = my_cursor.fetchone()
         
-        user = my_cursor.execute(f" SELECT * FROM Staff WHERE StaffFirstName = '{username}' ")
+        query = my_cursor.execute(f"SELECT Pass FROM Staff WHERE StaffFirstName = '{username}'")
+        pass1 = my_cursor.fetchone()
+        
+        usna= my_cursor.execute(f"SELECT StaffFirstName FROM Staff WHERE StaffFirstName = '{username}'")
+        name = my_cursor.fetchone()
+        
+        if name[0] == None:
+            flash('User Not Found', category='error')
+            return redirect( url_for('login') )
 
-        if user ==None:
-                flash('user not found', category='error')
-                return redirect( url_for('login') )
-
-        elif username == user.StaffFirstName and password == user.StaffPhoneNumber:
+        elif ( username == str(name[0]) and str(password) == str(pass1[0]) and int(SSN)==int(SSNExcuted[0]) ) :
             session['username'] = username  # saving session for login
             return redirect( url_for('home') )
 
@@ -57,15 +66,39 @@ def login():
 @app.route('/signup', methods=["GET", "POST"])
 def signup():
         if request.method == 'POST':
+            SSN = request.form['SSN']
             username = request.form['name']
             password = request.form['password']
+            confpass=request.form['confpass']
+
+            query = my_cursor.execute(f"SELECT StaffFirstName FROM Staff WHERE StaffFirstName = '{username}' ")
+            existedname = my_cursor.fetchone()
             
+            if existedname != None:
+                if username == str(existedname[0]):
+                    flash('Username already taken')
+                    return redirect( url_for('signup') )
+               
+            if password != confpass:
+                flash('Passwords do not match')
+                return redirect( url_for('signup') )
+
+            regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!#%*?&]{6,20}$"
+            pattern = re.compile(regex)
+
+            match = re.search(pattern, password)
+        
+            if match:
+                user = ("INSERT INTO STAFF (staffID,StaffFirstName,StaffLastName,Pass,StaffSpecialization) VALUES (%s,%s,%s,%s,%s)" )
+                my_cursor.execute(user,(SSN,username,username,password, 'das'))
+                db.mydb.commit()
+                flash('Staff Registred Successfully', category='info')
+                return redirect( url_for('login') )
+            else:
+                flash('Password should contain one Uppercase, one special character, one numeric character')
+                return redirect( url_for('signup') )
             
-            user = ("INSERT INTO STAFF (staffID,StaffFirstName,StaffLastName,Pass,StaffSpecialization) VALUES (%s,%s,%s,%s,%s)" )
-            my_cursor.execute(user,(4,username,username,password, 'das'))
-            db.mydb.commit()
                 
-            
             
         return render_template('/public/templates/signup.html')     
 

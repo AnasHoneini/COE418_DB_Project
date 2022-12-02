@@ -21,6 +21,10 @@
                 <div class="input-error-message"></div>
             </div>
             <div class="input-group">
+                <input type="text" class="input" id="SSN" autofocus placeholder="SSN" name= "SSN" >
+                <div class="input-error-message"></div>
+            </div>
+            <div class="input-group">
                 <input type="password" class="input" autofocus placeholder="Password" name = "password">
                 <div class="input-error-message"></div>
             </div>
@@ -29,17 +33,17 @@
             <p class="text">
                 <a class="link" href="{{ url_for('signup') }}" id="linkCreateAccount">Don't have an account? Create a new account</a>
             </p>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for msg in messages %}
+                
+                    <p class="messages"> {{ msg }} </p>
+               
+                {% endfor %}
+            {% endif %}
+        {% endwith%}
         </form>
     </div>
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-        {% for msg in messages %}
-        
-            <p class="messages"> {{ msg }} </p>
-       
-        {% endfor %}
-    {% endif %}
-{% endwith%}
 
     
 
