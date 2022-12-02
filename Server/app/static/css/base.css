@@ -29,6 +29,14 @@ html{
     scroll-behavior: smooth;
 }
 
+.title{
+    position: relative;
+    left : -33rem;
+    top:1rem;
+    color:#0084a7; 
+    font-size: 2.3rem; 
+}
+
 section{
     padding:2rem ;
 }
@@ -40,7 +48,7 @@ section:nth-child(even){
 .heading{
     text-align: center;
     padding-bottom: 2rem;
-    color:var(--black);
+    color:#0084a7;
     font-size: 5rem;
     letter-spacing: .4rem;
 }
@@ -91,6 +99,7 @@ section:nth-child(even){
     align-items: center;
     justify-content: space-between;
     background: #fff;
+    color:#0084a7;
 }
 
 

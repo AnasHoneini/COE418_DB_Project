@@ -33,17 +33,17 @@
             <p class="text">
                 <a class="link" href="{{ url_for('signup') }}" id="linkCreateAccount">Don't have an account? Create a new account</a>
             </p>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for msg in messages %}
+                
+                    <p class="messages"> {{ msg }} </p>
+               
+                {% endfor %}
+            {% endif %}
+        {% endwith%}
         </form>
     </div>
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-        {% for msg in messages %}
-        
-            <p class="messages"> {{ msg }} </p>
-       
-        {% endfor %}
-    {% endif %}
-{% endwith%}
 
     
 

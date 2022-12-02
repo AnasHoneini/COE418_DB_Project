@@ -8,29 +8,40 @@ import re
 
 my_cursor = db.my_cursor
 
-@app.route('/')
+    
+@app.route('/', methods=['GET', 'POST'])
+@app.route('/home')
 def home():
-  #  if 'username' in session:
-        return render_template('public/templates/home.html')
+    #if 'username' in session:
+       return render_template('public/templates/home.html')
     #else:
      #   flash('You are logged out. Please login again to continue')
       #  return redirect( url_for('home') )  
-    
-
 @app.route('/login', methods=["GET", "POST"])
 def login():
+    #if 'username' in session:                # Checking for session login
+     #   return redirect( url_for('home') )
+
     if request.method == 'POST':
         username = request.form['name']
         password = request.form['password']
+        SSN = request.form['SSN']
+
+        idssn= my_cursor.execute(f"SELECT StaffID FROM Staff WHERE StaffFirstName = '{username}'")
+        SSNExcuted = my_cursor.fetchone()
         
-        query = (f"SELECT pass FROM Staff WHERE pass = '{password}'")
-        pass1 = my_cursor.fetchone()[0]
+        query = my_cursor.execute(f"SELECT Pass FROM Staff WHERE StaffFirstName = '{username}'")
+        pass1 = my_cursor.fetchone()
         
         usna= my_cursor.execute(f"SELECT StaffFirstName FROM Staff WHERE StaffFirstName = '{username}'")
-        name = my_cursor.fetchone()[0]
+        name = my_cursor.fetchone()
+        
+        if name[0] == None:
+            flash('User Not Found', category='error')
+            return redirect( url_for('login') )
 
-        if username == name and password == pass1:
-            flash("login successfully")
+        elif ( username == str(name[0]) and str(password) == str(pass1[0]) and int(SSN)==int(SSNExcuted[0]) ) :
+            session['username'] = username  # saving session for login
             return redirect( url_for('home') )
 
         else:
@@ -72,14 +83,19 @@ def signup():
                 flash('Passwords do not match')
                 return redirect( url_for('signup') )
 
-            elif password == confpass:
+            regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!#%*?&]{6,20}$"
+            pattern = re.compile(regex)
+
+            match = re.search(pattern, password)
+        
+            if match:
                 user = ("INSERT INTO STAFF (staffID,StaffFirstName,StaffLastName,Pass,StaffSpecialization) VALUES (%s,%s,%s,%s,%s)" )
                 my_cursor.execute(user,(SSN,username,username,password, 'das'))
                 db.mydb.commit()
                 flash('Staff Registred Successfully', category='info')
                 return redirect( url_for('login') )
             else:
-                    
+                flash('Password should contain one Uppercase, one special character, one numeric character')
                 return redirect( url_for('signup') )
             
                 
