@@ -19,8 +19,9 @@ def home():
       #  return redirect( url_for('home') )  
 @app.route('/login', methods=["GET", "POST"])
 def login():
-    #if 'username' in session:                # Checking for session login
-     #   return redirect( url_for('home') )
+    if 'username' in session:                # Checking for session login
+       
+       return redirect( url_for('home') )
 
     if request.method == 'POST':
         username = request.form['name']

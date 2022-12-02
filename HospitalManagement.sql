@@ -2,7 +2,7 @@ CREATE DATABASE HospitalManagement;
 USE HospitalManagement;
 
 CREATE TABLE IF NOT EXISTS PATIENT (
-PatientID DECIMAL(5,0),
+PatientSSN DECIMAL(50),
 PatientFirstName VARCHAR(50) NOT NULL,
 PatientLastName VARCHAR(50) NOT NULL,
 PatientAge DECIMAL(3,0) NOT NULL,
