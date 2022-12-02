@@ -13,7 +13,6 @@ body {
     margin:0; padding: 0;
     box-sizing: border-box;
     outline: none; border: none;
-    text-transform: capitalize;
     transition: all .2s ease-out;
     text-decoration: none;
 }
@@ -50,7 +49,6 @@ section:nth-child(even){
 }
 
 .heading span{
-    text-transform: uppercase;
     color:var(--green);
 }
 

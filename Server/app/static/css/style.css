@@ -4,21 +4,17 @@
     --blue: #0084a7;
     --black:#444;
     --light-color:#72a9c6;
-    --border:.2rem solid var(--blue);
-
     --midblue: #0084a7;
     --darkblue: #0a234c;
-    --lightestblue: #72a9c6;
+    --lightestblue: #caeafb;
+    --grey: rgb(205, 203, 203);
+
 }
-
-
-
 *{
     font-family: 'Poppins', sans-serif;
     margin:0; padding: 0;
     box-sizing: border-box;
     outline: none; border: none;
-    text-transform: capitalize;
     transition: all .2s ease-out;
     text-decoration: none;
 }
@@ -41,15 +37,9 @@ section:nth-child(even){
 .heading{
     text-align: center;
     padding-bottom: 2rem;
-    text-transform: uppercase;
-    color:var(--black);
+    color:var(--darkblue);
     font-size: 5rem;
-    letter-spacing: .4rem;
-}
-
-.heading span{
-    text-transform: uppercase;
-    color:var(--blue);
+    
 }
 
 .btn{
@@ -84,16 +74,7 @@ section:nth-child(even){
     margin-left: 1rem;
 }
 
-.header{
-    padding:2rem 9%;
-    position: fixed;
-    top:0; left: 0; right: 0;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #fff;
-}
+
 
 .header .logo{
     font-size: 2.5rem;
@@ -131,10 +112,6 @@ section:nth-child(even){
     gap:1.5rem;
     padding-top: 10rem;
 }
-
-.home .image{
-}
-
 .home .image img{
     width: 100%;
 }
@@ -186,7 +163,7 @@ section:nth-child(even){
 
 .icons-container .icons p{
     font-size: 1.7rem;
-    color:var(--light-color);
+    color:var(--darkblue);
 }
 
 .services .box-container{
@@ -209,7 +186,7 @@ section:nth-child(even){
 }
 
 .services .box-container .box h3{
-    color: var(--black);
+    color: var(--darkblue);
     font-size: 2.5rem;
     padding:1rem 0;
 }
@@ -260,22 +237,20 @@ section:nth-child(even){
 
 .doctors .box-container .box{
     text-align: center;
-    background:#fff;
+    background: #8ea3d438;
     border-radius: .5rem;
-    border:var(--border);
     padding:2rem;
 }
 
 .doctors .box-container .box img{
     height: 20rem;
-    border:var(--border);
     border-radius: .5rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
 
 .doctors .box-container .box h3{
-    color:var(--black);
+    color:var(--darkblue);
     font-size: 2.5rem;
 }
 
@@ -356,7 +331,6 @@ section:nth-child(even){
 }
 
 .review .box-container .box{
-    border:var(--border);
     border-radius: .5rem;
     padding:2.5rem;
     background: #fff;
@@ -412,7 +386,7 @@ section:nth-child(even){
 }
 
 .blogs .box-container .box{
-    border:var(--border);
+   
     border-radius: .5rem;
     padding: 2rem;
 }
@@ -469,60 +443,13 @@ section:nth-child(even){
     line-height: 1.8;
     padding:1rem 0;
 }
-/* media queries  */
-@media (max-width:991px){
-
-    html{
-        font-size: 55%;
-    }
-
-    .header{
-        padding: 2rem;
-    }
-
-    section{
-        padding:2rem;
-    }
-
+@media only screen and (max-width: 1200px){
+    /*Tablets [601px -> 1200px]*/
+}
+@media only screen and (max-width: 600px){
+	/*Big smartphones [426px -> 600px]*/
+}
+@media only screen and (max-width: 425px){
+	/*Small smartphones [325px -> 425px]*/
 }
 
-@media (max-width:768px){
-
-    #menu-btn{
-        display: initial;
-    }
-
-    .header .navbar{
-        position: absolute;
-        top:115%; right: 2rem;
-        border-radius: .5rem;
-        width: 30rem;
-        border: var(--border);
-        background: #fff;
-        transform: scale(0);
-        opacity: 0;
-        transform-origin: top right;
-        transition: none;
-    }
-
-    .header .navbar.active{
-        transform: scale(1);
-        opacity: 1;
-        transition: .2s ease-out;
-    }
-
-    .header .navbar a{
-        font-size: 2rem;
-        display: block;
-        margin:2.5rem;
-    }
-
-}
-
-@media (max-width:450px){
-
-    html{
-        font-size: 50%;
-    }
-
-}
