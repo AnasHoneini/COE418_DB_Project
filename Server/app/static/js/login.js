@@ -1,3 +1,4 @@
+/*
 function setMessage(Element, type, msg) {
     const messageElement = Element.querySelector(".message");
 
@@ -47,4 +48,4 @@ document.addEventListener("DOMContentLoaded", () => {
            
         });
     });
-});
+});*/
