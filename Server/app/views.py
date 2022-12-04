@@ -31,13 +31,13 @@ def login():
         idssn= my_cursor.execute(f"SELECT ReceptionistSSN FROM RECEPTIONIST WHERE ReceptionistFirstName = '{username}'")
         SSNExcuted = my_cursor.fetchone()
         
-        query = my_cursor.execute(f"SELECT ReceptionistPass FROM Staff WHERE StaffFirstName = '{username}'")
+        query = my_cursor.execute(f"SELECT ReceptionistPass FROM RECEPTIONIST WHERE ReceptionistFirstName = '{username}'")
         pass1 = my_cursor.fetchone()
         
-        usna= my_cursor.execute(f"SELECT StaffFirstName FROM RECEPTIONIST WHERE ReceptionistFirstName = '{username}'")
+        usna= my_cursor.execute(f"SELECT ReceptionistFirstName FROM RECEPTIONIST WHERE ReceptionistFirstName = '{username}'")
         name = my_cursor.fetchone()
         
-        if name[0] == None:
+        if (name == None and pass1 == None and SSNExcuted == None) :
             flash('User Not Found', category='error')
             return redirect( url_for('login') )
 
