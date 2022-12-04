@@ -28,13 +28,13 @@ def login():
         password = request.form['password']
         SSN = request.form['SSN']
 
-        idssn= my_cursor.execute(f"SELECT StaffID FROM Staff WHERE StaffFirstName = '{username}'")
+        idssn= my_cursor.execute(f"SELECT ReceptionistSSN FROM RECEPTIONIST WHERE ReceptionistFirstName = '{username}'")
         SSNExcuted = my_cursor.fetchone()
         
-        query = my_cursor.execute(f"SELECT Pass FROM Staff WHERE StaffFirstName = '{username}'")
+        query = my_cursor.execute(f"SELECT ReceptionistPass FROM Staff WHERE StaffFirstName = '{username}'")
         pass1 = my_cursor.fetchone()
         
-        usna= my_cursor.execute(f"SELECT StaffFirstName FROM Staff WHERE StaffFirstName = '{username}'")
+        usna= my_cursor.execute(f"SELECT StaffFirstName FROM RECEPTIONIST WHERE ReceptionistFirstName = '{username}'")
         name = my_cursor.fetchone()
         
         if name[0] == None:
@@ -72,7 +72,7 @@ def signup():
             password = request.form['password']
             confpass=request.form['confpass']
 
-            query = my_cursor.execute(f"SELECT StaffFirstName FROM Staff WHERE StaffFirstName = '{username}' ")
+            query = my_cursor.execute(f"SELECT ReceptionistFirstName FROM RECEPTIONIST WHERE ReceptionistFirstName = '{username}' ")
             existedname = my_cursor.fetchone()
             
             if existedname != None:
@@ -90,8 +90,8 @@ def signup():
             match = re.search(pattern, password)
         
             if match:
-                user = ("INSERT INTO STAFF (staffID,StaffFirstName,StaffLastName,Pass,StaffSpecialization) VALUES (%s,%s,%s,%s,%s)" )
-                my_cursor.execute(user,(SSN,username,username,password, 'das'))
+                user = ("INSERT INTO RECEPTIONIST (ReceptionistSSN,ReceptionistFirstName,ReceptionistLastName,ReceptionistPass) VALUES (%s,%s,%s,%s)" )
+                my_cursor.execute(user,(SSN,username,username,password))
                 db.mydb.commit()
                 flash('Staff Registred Successfully', category='info')
                 return redirect( url_for('login') )
