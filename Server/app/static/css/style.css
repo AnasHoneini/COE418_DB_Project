@@ -99,6 +99,20 @@ section:nth-child(even){
     display: none;
 }
 
+<<<<<<< Updated upstream
+=======
+.home{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:1.5rem;
+    padding-top: 10rem;
+}
+
+.home .image{
+}
+
+>>>>>>> Stashed changes
 .home .image img{
     width: 100%;
 }
