@@ -1,6 +1,3 @@
-# file for views
-
-#importing our package (treating this directory as a package)
 from app import app
 from app import db
 from flask import Flask, render_template, request, redirect, url_for, session, flash
@@ -8,19 +5,18 @@ import re
 
 my_cursor = db.my_cursor
 
-    
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/home')
 def home():
     #if 'username' in session:
-       return render_template('public/templates/home.html')
+        return render_template('public/templates/home.html')
     #else:
-     #   flash('You are logged out. Please login again to continue')
-      #  return redirect( url_for('home') )  
+    #    flash('You are logged out. Please login again to continue')
+    #    return redirect( url_for('login') )
+
 @app.route('/login', methods=["GET", "POST"])
 def login():
     if 'username' in session:                # Checking for session login
-       
        return redirect( url_for('home') )
 
     if request.method == 'POST':
@@ -63,7 +59,6 @@ def login():
 
            #
            
-           #
 @app.route('/signup', methods=["GET", "POST"])
 def signup():
         if request.method == 'POST':
@@ -88,7 +83,7 @@ def signup():
             pattern = re.compile(regex)
 
             match = re.search(pattern, password)
-        
+
             if match:
                 user = ("INSERT INTO RECEPTIONIST (ReceptionistSSN,ReceptionistFirstName,ReceptionistLastName,ReceptionistPass) VALUES (%s,%s,%s,%s)" )
                 my_cursor.execute(user,(SSN,username,username,password))
@@ -103,10 +98,11 @@ def signup():
             
         return render_template('/public/templates/signup.html')     
 
-
+   
 
 @app.route('/booking')
 def booking():
+        
         return render_template('/public/templates/booking.html')     
 
 @app.route('/booking-room')
