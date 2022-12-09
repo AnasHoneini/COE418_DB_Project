@@ -79,7 +79,7 @@ body {
 
 .input:focus {
     border-color:var(--color-primary);
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .button {

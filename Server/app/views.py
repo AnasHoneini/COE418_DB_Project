@@ -22,7 +22,7 @@ def login():
     if request.method == 'POST':
         username = request.form['name']
         password = request.form['password']
-        rSSN = request.form['rSSN']
+        SSN = request.form['SSN']
 
         idssn= my_cursor.execute(f"SELECT ReceptionistSSN FROM RECEPTIONIST WHERE ReceptionistFirstName = '{username}'")
         ExistedSSN = my_cursor.fetchone()
@@ -37,7 +37,7 @@ def login():
             flash('User Not Found', category='error')
             return redirect( url_for('login') )
 
-        elif ( username == str(Existedname[0]) and str(password) == str(Existedpass[0]) and int(rSSN)==int(ExistedSSN[0]) ) :
+        elif ( username == str(Existedname[0]) and str(password) == str(Existedpass[0]) and int(SSN)==int(ExistedSSN[0]) ) :
             session['username'] = username  # saving session for login
             return redirect( url_for('staffPage') )
         #add conditions
@@ -63,7 +63,7 @@ def login():
 def signup():
 
         if request.method == 'POST':
-            receptionistSSN = request.form['rSSN']
+            receptionistSSN = request.form['SSN']
             receptionistFirstName = request.form['fname']
             receptionistLastName = request.form['lname']
             receptionistPass = request.form['password']
