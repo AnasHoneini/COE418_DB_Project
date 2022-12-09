@@ -1,0 +1,65 @@
+
+        <style>
+            /* input {
+                position: absolute;
+                left: 150px;
+            }
+            
+            select {
+                position: absolute;
+                left: 150px;
+            } */
+        </style>
+        <div class="form1">
+            <h1 style="color:#032583">Register Patient</h1>
+        
+           
+        
+            <form action="" method="POST">
+                <label for="ssn_id">SSN ID*</label>
+                <input type="number" class="text1" id="ssn_id" name="ssn_id" min="9" maxlength="9" required><br>
+                <label for="pname">Name*</label>
+                <input type="text" class="text1" id="pname" name="pname" required><br>
+                <label for="age">Age*</label>
+                <input type="number" class="text1" id="age" maxlength="2" min="0" name="age" required ><br>
+                <label for="address">Address*</label>
+                <input type="text" class="text1" id="address" name="address" required><br>
+                <label for="Bed">Bed Type*</label>
+                <select id="tbed" class="text1" name="tbed">
+                    <option value="GeneralWard">General Ward</option>
+                    <option value="SemiSharing">Semi Sharing</option>
+                    <option value="SingleRoom">Single Room</option>
+                </select><br>
+                <label for="state">State*</label>
+                <select id="state" class="text1" name="state">
+                    <option value="Kerala">Kerala</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                </select><br>
+                <label for="City">City*</label>
+                <select id="city" class="text1" name="city">
+                    <option value="Kochi">Kochi</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Bengaluru">Bengaluru</option>
+                    <option value="Chennai">Chennai</option>
+                </select><br>
+                <label for="status">Patient Status*</label>
+                <select id="status" class="text1" name="status">
+                    <option value="Active">Active</option>
+                    <option value="Discharged">Discharged</option>
+                </select><br>
+                <pre>(*)Fields are compulsary</pre>
+                <button class="button" type="submit">Submit</button> &nbsp;
+                <button class="rbutton" type="reset">Reset</button>
+            </form>
+
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for msg in messages %}
+                    <h3 style="color: red;  font-weight: bold; font-size: larger;"> {{ msg }} </h3>
+                {% endfor %}
+            {% endif %}
+        {% endwith%}
+        
+        </div>

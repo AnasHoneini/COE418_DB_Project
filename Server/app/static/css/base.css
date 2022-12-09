@@ -25,9 +25,9 @@ html{
 }
 
 .title{
-    position: relative;
-    left : -33rem;
-    top:1rem;
+    position: absolute;
+    left : 21rem;
+    top: 7rem;
     color:#0084a7; 
     font-size: 2.3rem; 
 }
@@ -42,7 +42,7 @@ section:nth-child(even){
 
 .heading{
     text-align: center;
-    padding-bottom: 2rem;
+    padding-bottom: 0rem;
     color:#0084a7;
     font-size: 5rem;
     letter-spacing: .4rem;
@@ -55,8 +55,8 @@ section:nth-child(even){
 .header{
     padding:2rem 9%;
     position: fixed;
-    top:0; left: 0; right: 0;
-    z-index: 1000;
+    top:-1rem; left: 0; right: 0;
+    z-index: 100;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -66,7 +66,9 @@ section:nth-child(even){
 
 
 .header .navbar a{
-    font-size: 1.7rem;
+    position: relative;
+    top:1.5rem;
+    font-size: 2.5rem;
     color: var(--light-color);
     margin-left: 2rem;
 }
@@ -106,8 +108,7 @@ section:nth-child(even){
         width: 30rem;
         border: var(--border);
         background: #fff;
-        transform: scale(0);
-        opacity: 0;
+
         transform-origin: top right;
       
     }

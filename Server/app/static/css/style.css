@@ -103,6 +103,11 @@ section:nth-child(even){
     width: 100%;
 }
 
+.staffpage .image img{
+    height: 650px;
+    width: 100%;
+}
+
 .about .content p{
     font-size: x-large;
     color:var(--black);
@@ -417,6 +422,55 @@ section:nth-child(even){
     padding-right:2rem;
 }
 
+.func .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap:2rem;
+}
+
+.func .box-container .box{
+    text-align: center;
+    background: rgb(255, 255, 255);
+    border-radius: .5rem;
+    padding:2rem;
+}
+
+.func .box-container .box img{
+    height: 20rem;
+    border-radius: .5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.func .box-container .box h3{
+    color:var(--0084a7);
+    font-size: 2.5rem;
+}
+
+.func .box-container .box span{
+    color:var(--blue);
+    font-size: 1.5rem;
+}
+
+.func.box-container .box .share{
+    padding-top: 2rem;
+}
+
+.func.box-container .box .share a{
+    height: 5rem;
+    width: 7rem;
+    line-height: 4.5rem;
+    font-size: 2rem;
+    color:var(--blue);
+    border-radius: .5rem;
+    border:var(--border);
+    margin:.3rem;
+}
+
+.func .box-container .box .share a:hover{
+    background:var(--blue);
+    color:rgb(255, 255, 255);
+}
 
 
 @media only screen and (max-width: 1200px){
