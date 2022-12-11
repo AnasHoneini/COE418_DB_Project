@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nurse Page</title>
+    <title>Staff Page</title>
     <script
       src="https://kit.fontawesome.com/2127468dd2.js"
       crossorigin="anonymous"
@@ -14,63 +14,103 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
-
     <!-- link to css file  -->
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/style.css') }}"
+      href="{{ url_for('static', filename='css/staff.css') }}"
     />
+    {% include "/public/templates/base/headerStaffPage.html" %} {% block content
+    %} {% endblock %}
   </head>
-  <body>
-    {% include "/public/templates/base/headerStaffPage.html" %} {% block content %} {%
-    endblock %}
 
-    <!-- Home header Starts -->
-    <header class="staffpage" id="staffpage">
+  <body>
+    <header class="home" id="home">
       <div class="image">
-        <img src="{{ url_for('static', filename='img/nurses2.png') }}"  />
+        <img src="{{ url_for('static', filename='img/staff.jpg') }}" />
+        <h1 class="heading">Welcome User</h1>
       </div>
     </header>
-    <!-- Home header Ends -->
 
-    <!-- Function Section Starts -->
-    <section class="func" id="func">
-      <h1 class="heading">Functions</h1>
-
-      <div class="box-container">
-        <div class="box">
-          <a href="https://www.w3schools.com" target="_blank">
-            <img src="{{ url_for('static', filename='img/new patient.png') }}" /></a>
-          <h3>Add a new patient</h3>
-        </div>
-
-        <div class="box">
-          <a href="https://www.youtube.com" target="_blank">
-            <img src="{{ url_for('static', filename='img/patient.png') }}" /></a>
-          <h3>Patient</h3>
-        </div>
-
-        <div class="box">
-          <a href="https://www.google.com" target="_blank">
-            <img src="{{ url_for('static', filename='img/appointment.png') }}" /></a>
-          <h3>Appointment</h3>
-        </div>
-        <br>
-        <div class="box">
-          <a href="https://www.amazon.com" target="_blank">
-            <img src="{{ url_for('static', filename='img/floor.png') }}" /></a>
-          <h3>Floor Status</h3>
-        </div>
+    <section class="row" id="row">
+      <section class="child_left">
         
-        <div class="box">
-          <a href="https://www.spotify.com" target="_blank">
-            <img src="{{ url_for('static', filename='img/room.png') }}" /></a>
-          <h3>Room Status</h3>
-      </div>
-    </section>
-    <!-- Functions Section Ends -->
+        <div class="side-container">
+          <div class="box_side">
+            <h1 class="heading">Appointment Notes</h1>
+            <p class="text">
+              You can only book your appointment between <br>
+              8 A.M to 10 P.M <br><br >
+              In other times you can call our ambulance which is available 24/7
+              on:
+              <br>
+            </p>
+            <i class="fas fa-phone"></i> +961 04 540 692 <br >
+            <i class="fas fa-phone"></i> +961 03 439 047 <br >
+            <br >
+            <hr>
+            <p class="text">
+              Please make sure to check the doctor's availibility below prior to
+              booking an appointment
+            </p>
+            <br>
+            <a href="#"
+              ><i class="fas fa-notes-medical"></i> Doctor's schedule
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- Calendar-->
+      <section class="child_mid">
+        <div class="calendar">
+          <div class="month">
+            <i class="fas fa-angle-left prev"></i>
+            <div class="date">
+              <h1></h1>
+              <p></p>
+            </div>
+            <i class="fas fa-angle-right next"></i>
+          </div>
+          <div class="weekdays">
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+          </div>
+          <div class="days"></div>
+        </div>
+      </section>
 
-    <!-- Footer Section Starts -->
+      <!-- Function Section Starts -->
+      <section class="function" id="function">
+        <div class="box-container">
+          <h1 class="heading">Update Database</h1>
+          <div class="box">
+            <i class="fa-solid fa-hospital-user"></i>
+            <h3>Patient</h3>
+            <a href="#" class="btn2"> Add </a> <br />
+            <a href="#" class="btn2"> Edit </a> <br />
+            <a href="#" class="btn2"> Search </a> <br />
+            <a href="#" class="btn2"> Show All </a>
+          </div>
+
+          <div class="box">
+            <i class="fas fa-pills"></i>
+            <h3>Medicine</h3>
+            <a href="#" class="btn2"> Add </a> <br />
+            <a href="#" class="btn2"> Edit </a> <br />
+            <a href="#" class="btn2"> Search </a> <br />
+            <a href="#" class="btn2"> Show All </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Functions Section Ends -->
+    </section>
+
+    <!-- Footer Section Starts 
     <section class="footer">
       <div class="box-container">
         <div class="box">
@@ -84,46 +124,10 @@
             <i class="fas fa-chevron-right"></i> Highlighted News
           </a>
         </div>
-
-        <div class="box">
-          <h3>Our Services</h3>
-          <a href="#"> <i class="fas fa-chevron-right"></i> Dental care </a>
-          <a href="#"> <i class="fas fa-chevron-right"></i> Message therapy </a>
-          <a href="#"> <i class="fas fa-chevron-right"></i> Cardioloty </a>
-          <a href="#"> <i class="fas fa-chevron-right"></i> Diagnosis </a>
-          <a href="#">
-            <i class="fas fa-chevron-right"></i> Ambulance service
-          </a>
-        </div>
-
-        <div class="box">
-          <h3>Contact Info</h3>
-          <a href="#"> <i class="fas fa-phone"></i> +961 04 540 692 </a>
-          <a href="#"> <i class="fas fa-phone"></i> +76 983 771 </a>
-          <a href="#">
-            <i class="fas fa-envelope"></i> LebMedCenter@gmail.com
-          </a>
-          <a href="#">
-            <i class="fas fa-envelope"></i> LebMedCenter@hotmail.com
-          </a>
-          <a href="#">
-            <i class="fas fa-map-marker-alt"></i> Lebanon, Beirut - Byblos
-          </a>
-        </div>
-
-        <div class="box">
-          <h3>Follow Us</h3>
-          <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
-          <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
-          <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
-          <a href="#"> <i class="fab fa-linkedin"></i> linkedin </a>
-          <a href="#"> <i class="fab fa-pinterest"></i> pinterest </a>
-        </div>
       </div>
-    </section>
+    </section>-->
     <!-- Footer Section Ends -->
-    
-    <!-- Javascript file link
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script> -->
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
   </body>
 </html>
