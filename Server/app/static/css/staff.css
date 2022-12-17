@@ -26,79 +26,79 @@
   font-size: 5rem;
 }
 
-.row {
-  display: flex;
-}
-.row .side-container {
+
+
+.row .full-box {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   gap: 2rem;
+  
 }
-
-.row .side-container .box_side {
+.row .full-box .box-side {
+  padding: 2rem;
   text-align: center;
   background: var(--lightestblue);
   border-radius: 0.5rem;
-  padding: 2rem;
+  width : 60%;
+  margin-left: 20%;
+ 
 }
 
-.row .side-container .box_side h1 {
+.row .full-box .box-side h1 {
   color: var(--color-primary-dark);
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   text-decoration: underline;
 }
 
-.row .side-container .box_side p {
+.row .full-box .box-side .txt {
   text-align: left;
+  font-size: 2rem;
 }
-
+.row .full-box .box-side span {
+  text-align: left;
+  font-size: 1.5rem;
+  text-decoration: underline;
+}
 /* styling for left side*/
 
-.row .function .box-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
-  gap: 5rem;
-  padding-left: 20%;
-  padding-right: 20%;
-}
-
-.row .function .box-container .box {
+.row .full-box .function .box-side {
+  padding: 2rem;
+  text-align: center;
   background: var(--lightestblue);
   border-radius: 0.5rem;
-  padding: 2rem;
+  width : 60%;
+  text-align: left;
+ 
 }
 
-.row .function .box-container .box i {
+.row .full-box .function .box-side .box1 i {
   color: var(--midblue);
-  font-size: 5rem;
-  padding-bottom: 0.5rem;
+  font-size: 2rem;
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
+  
 }
 
-.row .function .box-container .box h3 {
+.row .full-box .function .box-side .box1 h3 {
   color: var(--darkblue);
-  font-size: 2.5rem;
-  padding: 1rem 0;
-}
+  font-size: 2rem;
+  padding-bottom: 1rem;
 
-
-.row .function .box-container .box p {
-  color: var(--light-color);
-  font-size: 1.4rem;
-  line-height: 2;
-  text-align: center;
 }
 
 /*calendar css*/
 
-.calendar {
+.row .full-box .box-mid .calendar {
   color: rgb(238, 238, 238);
   width: 45rem;
   height: 52rem;
   background-color: var(--light-color);
   border-radius: 0.5rem;
+ 
+ 
 }
 
-.month {
+.row .full-box .box-mid .month {
   width: 100%;
   height: 12rem;
   background-color: var(--blue);
@@ -110,12 +110,12 @@
   border-radius: 0.5rem;
 }
 
-.month i {
+.row .full-box .box-mid .month i {
   font-size: 2.5rem;
   cursor: pointer;
 }
 
-.month h1 {
+.row .full-box .box-mid .month h1 {
   font-size: 3rem;
   font-weight: 400;
   text-transform: uppercase;
@@ -123,11 +123,11 @@
   margin-bottom: 1rem;
 }
 
-.month p {
+.row .full-box .box-mid .month p {
   font-size: 1.6rem;
 }
 
-.weekdays {
+.row .full-box .box-mid .weekdays {
   width: 100%;
   height: 5rem;
   padding: 0 0.4rem;
@@ -135,7 +135,7 @@
   align-items: center;
 }
 
-.weekdays div {
+.row .full-box .box-mid .weekdays div {
   font-size: 2rem;
   font-weight: 400;
   letter-spacing: 0.1rem;
@@ -145,14 +145,14 @@
   align-items: center;
 }
 
-.days {
+.row .full-box .box-mid .days {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   padding: 0.2rem;
 }
 
-.days div {
+.row .full-box .box-mid .days div {
   font-size: 2rem;
   margin: 0.3rem;
   width: calc(40.2rem / 7);
@@ -164,18 +164,18 @@
   transition: background-color 0.2s;
 }
 
-.days div:hover:not(.today) {
+.row .full-box .box-mid .days div:hover:not(.today) {
   background-color: var(--darkblue);
   border: 0.2rem solid #777;
   cursor: pointer;
 }
 
-.prev-date,
-.next-date {
+.row .full-box .box-mid .prev-date,
+.row .full-box .box-mid .next-date {
   opacity: 0.5;
 }
 
-.today {
+.row .full-box .box-mid .today {
   background-color: var(--darkblue);
 }
 
@@ -196,12 +196,33 @@
   color: rgba(255, 255, 255, 0.724);
 }
 
-@media only screen and (max-width: 1200px) {
-  /*Tablets [601px -> 1200px]*/
+
+.footer .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  gap: 2rem;
+ 
 }
-@media only screen and (max-width: 600px) {
-  /*Big smartphones [426px -> 600px]*/
+
+.footer .box-container .box h3 {
+  font-size: 2.5rem;
+  color: var(--black);
+  padding: 1rem 0;
 }
-@media only screen and (max-width: 425px) {
-  /*Small smartphones [325px -> 425px]*/
+
+.footer .box-container .box a {
+  display: block;
+  font-size: 1.5rem;
+  color: var(--light-color);
+  padding: 1rem 0;
+}
+
+.footer .box-container .box a i {
+  padding-right: 0.5rem;
+  color: var(--midblue);
+  
+}
+/*Animation on hover on links in footer*/
+.footer .box-container .box a:hover i {
+  padding-right: 2rem;
 }

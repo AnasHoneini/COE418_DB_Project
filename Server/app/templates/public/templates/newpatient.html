@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!---Coding By CodingLab | www.codinglabweb.com--->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>New Patient</title>
+    <!---Custom CSS File--->
+    <link
+      rel="stylesheet"
+      href="patient.css"
+    />
+  </head>
+  <body>
+    <section class="container">
+      <header>Patient Form</header>
+      <form action="#" class="form">
+        <div class="input-box">
+          <label>SSN</label>
+          <input type="number" placeholder="Enter your social security number" required />
+        </div>
+
+        <div class="column">
+          <div class="input-box">
+            <label>First Name</label>
+            <input type="text" placeholder="Enter first name" required />
+          </div>
+  
+          <div class="input-box">
+            <label>Last Name</label>
+            <input type="text" placeholder="" required />
+          </div>
+        </div>
+
+
+        <div class="column">
+          <div class="input-box">
+            <label>Phone Number</label>
+            <input type="number" placeholder="" required />
+          </div>
+          <div class="input-box">
+            <label>Family Phone Number</label>
+            <input type="number" placeholder="" required />
+          </div>
+         </div> 
+
+         <div class="column">
+          <div class="age-box">
+            <label>Age</label>
+            <input type="number" placeholder="" required />
+          </div>
+          
+        
+        <div class="gender-box">
+          <h3>Gender</h3>
+          <div class="gender-option">
+            <div class="gender">
+              <input type="radio" id="check-male" name="gender" checked />
+              <label for="check-male">Male</label>
+            </div>
+            <div class="gender">
+              <input type="radio" id="check-female" name="gender" />
+              <label for="check-female">Female</label>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="input-box address">
+          <label>Address</label>
+          <input type="text" placeholder="Enter street address"/>
+
+          <div class="column">
+            <div class="select-box">
+              <select>
+                <option hidden>Country</option>
+                <option>Lebanon</option>
+                <option>Japan</option>
+                <option>India</option>
+                <option>Nepal</option>
+              </select>
+            </div>
+            <input type="text" placeholder="Enter your city"/>
+          </div>
+          <br> 
+          <div class="column">
+            <h3>Patient Room</h3> 
+          </div>
+          <div class = "column">   
+            <div class="input-box">
+              <label>Room Number</label>
+              <input type="number" placeholder="Enter Room number" required />
+            </div>
+          </div>
+          <br>
+          <div class="column">
+            <div class="input">
+            <label>Date Entering the Room</label>
+            <input type="date" placeholder="Date Entering the Room" required/>
+          
+          </div>
+          <div class="input">
+            <label>Date Leaving the Room</label>
+            <input type="date" placeholder="Date Leaving the Room"/>
+          </div>
+            
+        </div>
+        <button>Submit</button>
+      </form>
+    </section>
+  </body>
+</html>
