@@ -143,3 +143,7 @@ def addmedicine():
 @app.route('/addPatient')
 def addPatient():
     return render_template('public/templates/newpatient.html') 
+
+@app.route('/inv')
+def inv():
+    return render_template('public/templates/billing.html') 
