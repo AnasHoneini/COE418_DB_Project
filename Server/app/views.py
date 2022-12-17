@@ -133,4 +133,13 @@ def staffPage():
 def logout():
     session.pop('username', None)
     flash('logged out successfully .')
-    return redirect( url_for('home') )       
+    return redirect( url_for('home') )   
+
+@app.route('/addmedicine')
+def addmedicine():
+    return render_template('public/templates/newmedicine.html') 
+
+
+@app.route('/addPatient')
+def addPatient():
+    return render_template('public/templates/newpatient.html') 
