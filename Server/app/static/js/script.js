@@ -28,7 +28,11 @@ for(let i = 1; i <= 31; i++) {
 monthDays.innerHTML = days;
 
 }*/
+
+//we created a Date object 
 const date = new Date();
+//this gives you the current date as:
+  
 
 const renderCalendar = () => {
   date.setDate(1);
@@ -57,6 +61,7 @@ const renderCalendar = () => {
 
   const nextDays = 7 - lastDayIndex - 1;
 
+  //Creating an array storing all month's values
   const months = [
     "January",
     "February",
