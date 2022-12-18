@@ -55,11 +55,7 @@
 
                 <td> <button type="button" class="ubutton" onclick="window.location='editpatientdetail/{{ updatep[i][0] }}'"> Edit Patient </button> </td>
 
-                <td> 
-                    <form method="POST" action="{{ url_for('deletepatientdetail') }}">
-                    <button name="delete" type="submit" class="ibutton" value="{{ updatep[i][0] }}">Delete Patient</button>
-                    </form>
-                </td>
+                
             </tr>
             {% endfor %}
         </table>
