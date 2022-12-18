@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Patient</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/updatepatient.css') }}"
+    />
+    
+</head>
+<body>
+    <div class="astatus">
+
+        <h1 style="color: rgb(228, 1, 1);" > Patients </h1><br>
+    
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for msg in messages %}
+                    <p style="font-weight: bolder; color: red; font-size: larger;"> {{ msg }} </p>
+                {% endfor %}
+            {% endif %}
+        {% endwith%}
+    
+        <table >
+            <tr>
+                <th>SSN</th>
+                <th>Patient First Name</th>
+                <th>Patient Last Name</th>
+                <th>Patient Age</th>
+                <th>Patient Address</th>
+                <th>Patient Phone Number</th>
+                <th>Patient Family Number</th>
+                <th>RoomNb</th>
+                <th>Last Edit</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                
+            </tr>
+            {% for i in range(0,updatep|length) %}
+            <tr>
+                <td> {{ updatep[i][0] }} </td>
+                <td> {{ updatep[i][1] }} </td>
+                <td> {{ updatep[i][2] }} </td>
+                <td> {{ updatep[i][3] }} </td>
+                <td> {{ updatep[i][4] }} </td>
+                <td> {{ updatep[i][6] }} </td>
+                <td> {{ updatep[i][7] }} </td>
+                <td> {{ updatep[i][12] }} </td>
+                <td> {{ldate}} </td>
+                
+                
+
+                <td> <button type="button" class="ubutton" onclick="window.location='editpatientdetail/{{ updatep[i][0] }}'"> Edit Patient </button> </td>
+
+                <td> 
+                    <form method="POST" action="{{ url_for('deletepatientdetail') }}">
+                    <button name="delete" type="submit" class="ibutton" value="{{ updatep[i][0] }}">Delete Patient</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+    
+        <form action="{{ url_for('update_patient') }}">
+        <button type="submit" class="ibutton" value="Refresh the list">Refresh Status</button>
+        </form>
+    </div>
+</body>
+</html>

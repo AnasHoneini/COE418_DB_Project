@@ -1,7 +1,8 @@
+import datetime
 from app import app
 from app import db
 from flask import Flask, render_template, request, redirect, url_for, session, flash
-from datetime import datetime
+from datetime import date
 import re
 
 my_cursor = db.my_cursor
@@ -227,6 +228,93 @@ def newMedicine():
 
     
     return render_template('public/templates/newMedicine.html')
+
+
+@app.route('/update_patient')
+def update_patient():
+    if 'SSN' in session:
+        usern = session['SSN']
+        print(usern)
+        query = my_cursor.execute(
+            f"SELECT * FROM PATIENT ")
+        updatep = my_cursor.fetchall()
+        db.mydb.commit()
+        ldate=date.today()
+        
+
+        if not updatep:
+            flash('No patients exists in database',category='error')
+            return redirect( url_for('update_patient') )
+        else:
+            flash('Welcome', category='info')
+            return render_template('public/templates/update_patient.html',updatep=updatep, ldate=ldate)
+    else:
+        flash('You are logged out. Please login again to continue')
+        return redirect( url_for('login') )
+
+@app.route('/editpatientdetail/<id>', methods=['GET', 'POST'])
+def editpatientdetail(id):
+    print("id is : ", id)
+    if 'SSN' in session:
+        print("inside sesssss")
+        
+        query = my_cursor.execute(
+            f"SELECT * FROM PATIENT WHERE PatientSSN = '{id}'")
+        editpat = my_cursor.fetchall()
+        print(editpat)
+
+        if request.method == 'POST':  
+            print("inside editpat post mtd")
+            pfname = request.form['npfname'] 
+            plname = request.form['nplname']      
+            age = request.form['nage']
+            address = request.form['naddress']
+            room = request.form['nroomNb']
+            pPhoneNumber = request.form['nppn']
+            fPhoneNumber = request.form['nfpn']
+
+            user = (f"UPDATE PATIENT SET PatientFirstName = %s, PatientLastName = %s, PatientAge = %s, PatientAddress= %s, PatientPhoneNumber =%s, PatientFamilyNumber=%s, RoomNb=%s WHERE PatientSSN = '{id}'")
+             
+            my_cursor.execute(
+                    user, (pfname, plname, age, address, pPhoneNumber, fPhoneNumber, room))
+            db.mydb.commit()
+
+
+            if user == None:
+                flash('Something Went Wrong')
+                return redirect( url_for('update_patient') )
+            else:
+                flash('Patient update initiated successfully')
+                return redirect( url_for('update_patient') )
+    else:
+        flash('You are logged out. Please login again to continue')
+        return redirect( url_for('login') )
+
+    
+    return render_template('public/templates/editpatientdetail.html', editpat = editpat)
+
+
+
+@app.route('/deletepatientdetail', methods=['GET', 'POST'])
+def deletepatientdetail():
+    
+    if 'SSN' in session:
+        deleteid=request.form['delete']
+        print("inside dad")
+        query = my_cursor.execute(
+            f"DELETE FROM PATIENT WHERE PatientSSN='{deleteid}'")
+        updatep = my_cursor.fetchall()
+        db.mydb.commit()
+
+        if updatep == None:
+            flash('Something Went Wrong')
+            return redirect( url_for('update_patient') )
+        else:
+            flash('Patient deletion initiated successfully')
+            return redirect( url_for('update_patient') )
+
+    return render_template('update_patient.html', updatep=updatep)
+
 
 @app.route('/inv')
 def inv():

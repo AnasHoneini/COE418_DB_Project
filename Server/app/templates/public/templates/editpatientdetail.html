@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <div class="form1">
+        <h1 style="color: rgb(11, 29, 129); text-align: center;">Edit Patient </h1>
+        
+        {% for i in range(0,editpat|length) %}
+        <form action="/editpatientdetail/{{ editpat[i][0] }}" method="POST">
+            <label for="id">Patient SSN: </label> <b>{{ editpat[i][0] }}</b> <br><br>
+          
+            <label for="Name">Old Patient Name: </label> <b>{{ editpat[i][1] }} {{ editpat[i][2] }}</b> <br><br>
+    
+            <label for="New customer Name*">New Patient Fisrt Name</label>
+            <input type="text" class="text1" id="npname" name="npfname" required><br><br>
+
+            <label for="New customer Name*">New Patient Last Name</label>
+            <input type="text" class="text1" id="npname" name="nplname" required><br><br>
+    
+            <label for="Old Address">Old Address:  </label> <b>{{ editpat[i][4] }}</b> <br><br>
+    
+            <label for="New Address*">New Address</label>
+            <input type="text" class="text1" id="naddress" name="naddress" required><br><br>
+    
+            <label for="Old Age">Old Age:  </label> <b>{{ editpat[i][3] }}</b> <br><br>
+    
+            <label for="New Age*">New Age</label>
+            <input type="text" class="text1" id="nage" name="nage" required><br><br>
+    
+            <label for="Old Address">Old Room:  </label><b> {{ editpat[i][12] }}</b> <br><br>
+    
+            <label for="Room">New Room*</label> 
+            <input type="text" class="text1" id="nbed" name="nroomNb" required><br><br>
+                    
+            <label for="OldPPhoneNumber">Old Patient Phone Number:  </label> <b> {{ editpat[i][6] }}</b> <br><br>       
+            <label for="phonenumber">Current Patient Phone Number</label>
+            <input type="text" class="text1" id="nbed" name="nppn" required><br><br>
+    
+            <label for="OldFPhoneNumber">Old Family Phone Number:  </label> <b> {{ editpat[i][7] }}</b> <br><br>       
+            <label for="phonenumber">Current Family Phone Number</label>
+            <input type="text" class="text1" id="nbed" name="nfpn" required><br><br>
+    
+            
+            <button type="submit" class="button" >Update</button>
+        </form>
+    
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for msg in messages %}
+                    <p style="font-weight: bolder;" > {{ msg }} </p>
+                {% endfor %}
+            {% endif %}
+        {% endwith%}
+    
+        {% endfor %}
+    
+    </div>
+</body>
+</html>
