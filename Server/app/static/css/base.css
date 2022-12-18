@@ -24,25 +24,29 @@ html{
     scroll-behavior: smooth;
 }
 
-.title{
-    position: absolute;
-    left : 21rem;
-    top: 7rem;
-    color:#0084a7; 
-    font-size: 2.3rem; 
-}
 
 section{
     padding:2rem ;
 }
 
-
+.messages{
+    color: red;
+    font-size: large;
+}
 
 .heading{
     text-align: center;
     padding-bottom: 0rem;
     color:#0084a7;
     font-size: 5rem;
+}
+
+.header .title{
+    position: absolute;
+    left : 12%;
+    top: 45%;
+    color:#0084a7; 
+    font-size: 25px; 
 }
 
 .heading span{
@@ -54,7 +58,7 @@ section{
     padding:2rem 9%;
     position:fixed;
     top:-1rem; left: 0; right: 0;
-    z-index: 100;
+    z-index: 200;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -73,10 +77,11 @@ section{
 
 .header .navbar a{
     position: relative;
-    top:1.5rem;
-    font-size: 2.5rem;
+    top: 25px;
+    right: 10px;
+    font-size: 22px;
     color: var(--light-color);
-    margin-left: 2rem;
+    
 }
 
 .header .navbar a:hover{
@@ -126,7 +131,7 @@ section{
     }
 
     .header .navbar a{
-        font-size: 2rem;
+        font-size: 20rem;
         display: block;
         margin:2.5rem;
     }
@@ -140,3 +145,4 @@ section{
     }
 
 }
+

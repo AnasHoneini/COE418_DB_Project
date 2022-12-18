@@ -17,7 +17,17 @@
       href="{{ url_for('static', filename='css/style.css') }}"
     />
   </head>
-  <body>
+  <body> 
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+        {% for msg in messages %}
+        
+            <p class="messages"> {{ msg }} </p>
+       
+        {% endfor %}
+  {% endif %}
+{% endwith%}
+
     {% include "/public/templates/base/header.html" %} {% block content %} {%
     endblock %}
     
@@ -29,15 +39,7 @@
     </header>
     <!-- Home header Ends -->
     
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-        {% for msg in messages %}
-        
-            <p class="messages"> {{ msg }} </p>
-       
-        {% endfor %}
-    {% endif %}
-{% endwith%}
+   
     <!-- About us sectio Starts -->
     <section class="about" id="about">
       <h1 class="heading">About Us</h1>

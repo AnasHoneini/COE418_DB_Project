@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>New Patient</title>
+    <title>New Medicine</title>
     <!---Custom CSS File--->
     <link
     rel="stylesheet"
@@ -13,23 +13,29 @@
      />
   </head>
   <body>
+    {% with messages = get_flashed_messages(category_filter=['info']) %} {%
+      if messages %} {% for msg in messages %}
+      
+      <p class="messages">{{ msg }}</p>
+
+      {% endfor %} {% endif %} {% endwith%}
     <section class="container">
       <header>Medicine Form</header>
-      <form action="#" class="form">
+      <form action="/newMedicine" class="form" method="POST">
         <div class="input-box">
           <label>Name</label>
-          <input type="number" placeholder="Enter the name of the medicine" required />
+          <input type="text" placeholder="Enter the name of the medicine" name="mName" required />
         </div>
 
         <div class="column">
           <div class="input-box">
             <label>Type</label>
-            <input type="text" placeholder="Enter type of the medicine" required />
+            <input type="text" placeholder="Enter type of the medicine" name="mType" required />
           </div>
   
           <div class="input-box">
             <label>Company Name</label>
-            <input type="text" placeholder="" required />
+            <input type="text" placeholder="Company Name" name="mCompany" required />
           </div>
         </div>
 
@@ -37,26 +43,23 @@
         <div class="column">
           <div class="input-box">
             <label>Expiry Date</label>
-            <input type="date" placeholder="" required />
+            <input type="date" placeholder="" name="mDate" required />
           </div>
           <div class="input-box">
             <label>Price</label>
-            <input type="number" placeholder="" required />
+            <input type="text" placeholder="Price in $" name="mPrice" required />
           </div>
          </div> 
 
       </div>
-        <div class="input-box address">
-          <label>Address</label>
-          <input type="text" placeholder="Enter street address"/>
-
-          <div class="input">
+        
+          <div class="input-box">
             <label>Doctor SSN</label>
-            <input type="text" placeholder="Date Leaving the Room"/>
+            <input type="text" placeholder="Doctor SSN" name="DSSN" required/>
           </div>
             
         </div>
-        <button>Submit</button>
+        <button class="button" type="submit">Submit</button>
       </form>
     </section>
   </body>

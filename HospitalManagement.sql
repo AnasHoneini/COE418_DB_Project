@@ -9,10 +9,8 @@ PatientLastName VARCHAR(50) NOT NULL,
 PatientAge DECIMAL(3,0),
 PatientAddress VARCHAR(100),
 PatientGender VARCHAR(8),
-PatientPass VARCHAR(50) NOT NULL,
 PatientPhoneNumber DECIMAL(8,0) NOT NULL,
 PatientFamilyNumber DECIMAL(8,0),
-Symptoms VARCHAR(100),
 PatientEnteringDateRoom DATE,
 PatientLeavingDateRoom DATE,
 RegistrationDate DATE,
@@ -150,7 +148,7 @@ FOREIGN KEY (FloorNb) REFERENCES HFLOOR(FloorNb)
 );
 
 ALTER TABLE PATIENT
-ADD Foreign Key (RoomNb) REFERENCES ROOM(RoomNb)
+ADD Foreign Key (RoomNb) REFERENCES ROOM(RoomNb);
 
 ALTER TABLE PATIENT
 ADD Foreign Key (ReceptionistSSN) REFERENCES RECEPTIONIST(ReceptionistSSN);
