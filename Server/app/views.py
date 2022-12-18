@@ -234,7 +234,7 @@ def newMedicine():
 def update_patient():
     if 'SSN' in session:
         usern = session['SSN']
-        print(usern)
+        #print(usern)
         query = my_cursor.execute(
             f"SELECT * FROM PATIENT ")
         updatep = my_cursor.fetchall()
@@ -256,12 +256,12 @@ def update_patient():
 def editpatientdetail(id):
     print("id is : ", id)
     if 'SSN' in session:
-        print("inside sesssss")
+        #print("inside edit")
         
         query = my_cursor.execute(
             f"SELECT * FROM PATIENT WHERE PatientSSN = '{id}'")
         editpat = my_cursor.fetchall()
-        print(editpat)
+        #print(editpat)
 
         if request.method == 'POST':  
             print("inside editpat post mtd")
@@ -300,13 +300,13 @@ def deletepatientdetail():
     
     if 'SSN' in session:
         deleteid=request.form['delete']
-        print("inside dad")
+       # print("inside del")
         query = my_cursor.execute(
             f"DELETE FROM PATIENT WHERE PatientSSN='{deleteid}'")
-        updatep = my_cursor.fetchall()
+        updatep = my_cursor.execute(query)
         db.mydb.commit()
 
-        if updatep == None:
+        if updatep:
             flash('Something Went Wrong')
             return redirect( url_for('update_patient') )
         else:
