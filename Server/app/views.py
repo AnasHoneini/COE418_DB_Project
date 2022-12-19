@@ -21,7 +21,7 @@ def home():
 
 @app.route('/login', methods=["GET", "POST"])
 def login():
-    if 'SSN' in session:                # Checking for session login
+    if 'SSN' in session:  # Checking for session login
         return redirect(url_for('staffPage'))
 
     if request.method == 'POST':
@@ -63,20 +63,6 @@ def login():
         else:
             flash('Wrong Creditentials', category="error")
     return render_template('/public/templates/login.html')
-
-    # my_cursor.execute("SELECT StaffFirstName FROM STAFF")
-    #    rv = my_cursor.fetchall()
-    # my_cursor.execute(f" SELECT * FROM PRODUCT WHERE label = '{username}' ")
-
-    # query = (" INSERT INTO STAFF (staffID,StaffFirstName,StaffLastName,StaffSpecialization) VALUES (%s,%s,%s,%s)" )
-    #  my_cursor.execute(query,(okas,username,password,em))
-
-    # my_cursor.execute("SELECT StaffFirstName FROM STAFF")
-    # rv = my_cursor.fetchall()
-
-    # print(rv)
-
-    #
 
 
 @app.route('/signup', methods=["GET", "POST"])
@@ -234,7 +220,6 @@ def newMedicine():
 def update_patient():
     if 'SSN' in session:
         usern = session['SSN']
-        # print(usern)
         query = my_cursor.execute(
             f"SELECT * FROM PATIENT ")
         updatep = my_cursor.fetchall()
@@ -256,12 +241,10 @@ def update_patient():
 def editpatientdetail(id):
     print("id is : ", id)
     if 'SSN' in session:
-        # print("inside edit")
 
         query = my_cursor.execute(
             f"SELECT * FROM PATIENT WHERE PatientSSN = '{id}'")
         editpat = my_cursor.fetchall()
-        # print(editpat)
 
         if request.method == 'POST':
             print("inside editpat post mtd")
@@ -299,7 +282,6 @@ def deletepatientdetail():
     if 'SSN' in session:
         if request.method == 'POST':
             deleteid = request.form['delete']
-            # print("inside del")
             query = my_cursor.execute(
                 f"DELETE FROM PATIENT WHERE PatientSSN='{deleteid}'")
             updatep = my_cursor.execute(query)
@@ -319,7 +301,6 @@ def deletepatientdetail():
 def update_medicine():
     if 'SSN' in session:
         usern = session['SSN']
-        # print(usern)
         query = my_cursor.execute(
             f"SELECT * FROM MEDICINE ")
         updateM = my_cursor.fetchall()
@@ -341,12 +322,10 @@ def update_medicine():
 def editMedicinedetail(name):
     print("name is : ", name)
     if 'SSN' in session:
-        # print("inside edit")
 
         query = my_cursor.execute(
             f"SELECT * FROM MEDICINE WHERE MedicineName = '{name}'")
         editMed = my_cursor.fetchall()
-        # print(editMed)
 
         if request.method == 'POST':
             print("inside editMed post mtd")
@@ -381,7 +360,6 @@ def deleteMedicinedetail():
     if 'SSN' in session:
         if request.method == 'POST':
             deleteName = request.form['delete']
-        # print("inside del")
             query = my_cursor.execute(
                 f"DELETE FROM MEDICINE WHERE MedicineName='{deleteName}'")
             updateM = my_cursor.execute(query)
@@ -459,7 +437,6 @@ def searchMedicine():
 def showAllDoctors():
     if 'SSN' in session:
         usern = session['SSN']
-        # print(usern)
         query = my_cursor.execute(
             f"SELECT * FROM DOCTOR ")
         showD = my_cursor.fetchall()
@@ -479,7 +456,6 @@ def showAllDoctors():
 def showAllNurses():
     if 'SSN' in session:
         usern = session['SSN']
-        # print(usern)
         query = my_cursor.execute(
             f"SELECT * FROM NURSE ")
         showN = my_cursor.fetchall()
@@ -499,7 +475,6 @@ def showAllNurses():
 def showAllRooms():
     if 'SSN' in session:
         usern = session['SSN']
-        # print(usern)
         query = my_cursor.execute(
             f"SELECT * FROM ROOM ")
         showR = my_cursor.fetchall()
@@ -514,13 +489,6 @@ def showAllRooms():
     else:
         flash('You are logged out. Please login again to continue')
         return redirect(url_for('login'))
-
-
-@app.route('/logout')
-def logout():
-    session.pop('SSN', None)
-    flash('logged out successfully .')
-    return redirect(url_for('home'))
 
 
 @app.route('/booking', methods=["GET", "POST"])
@@ -552,3 +520,10 @@ def booking():
 @app.route('/inv')
 def inv():
     return render_template('public/templates/billing.html')
+
+
+@app.route('/logout')
+def logout():
+    session.pop('SSN', None)
+    flash('logged out successfully .')
+    return redirect(url_for('home'))
