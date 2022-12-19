@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Medicine</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/updatemedicine.css') }}"
+    />
+  </head>
+
+  <body>
+    <style>
+      .text {
+        width: 250px;
+        padding: 10px 5px;
+        border: none;
+        border: solid 1px rgb(37, 62, 99) !important;
+        border-radius: 5px;
+      }
+      .ibutton {
+        background-color: #0079ca;
+        border: 2px;
+        border-radius: 10px;
+        color: white;
+        padding: 12px 28px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+      }
+    </style>
+
+    <div style="margin-top: 150px; text-align: center;">
+      <h1 style="color: rgb(0, 0, 0);">Search Medicine</h1>
+
+      <div style="margin-left: -10px;">
+        <form action="" method="POST">
+          <label
+            for="id"
+            style="font-weight: bold; font-size: large; color: rgb(2, 2, 146);"
+          >
+            Medicine Name
+          </label>
+          &nbsp;&nbsp;
+          <input type="text" class="text" name="mName" id="id" />
+          <br />
+          <br />
+          <button class="ibutton" type="submit">Search</button>
+          <br />
+          <br />
+          <a class="ibutton" href="{{ url_for('staffPage') }}">
+            Return to Home Page
+          </a>
+          {% with messages = get_flashed_messages() %} {% if messages %} {% for
+          msg in messages %}
+          <div>
+            <br />
+            <p style="color: rgb(248, 11, 11); text-align: center;">
+              <strong>{{ msg }}</strong>
+            </p>
+          </div>
+          {% endfor %} {% endif %} {% endwith%}
+        </form>
+      </div>
+    </div>
+
+    <br />
+    <div>
+      {% if searchMed %}
+      <table border="1">
+        <tr>
+          <th>Medicine Name</th>
+          <th>Medicine Type</th>
+          <th>Company Name</th>
+          <th>Expiry Date</th>
+          <th>Medicine Price</th>
+          <th>Doctor SSN</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+
+        <tr>
+          {% for i in range(0,searchMed|length) %}
+        </tr>
+
+        <tr>
+          <td>{{ searchMed[i][0] }}</td>
+          <td>{{ searchMed[i][1] }}</td>
+          <td>{{ searchMed[i][2] }}</td>
+          <td>{{ searchMed[i][3] }}</td>
+          <td>{{ searchMed[i][4] }}</td>
+          <td>{{ searchMed[i][5] }}</td>
+
+          <td>
+            <button
+              type="button"
+              class="ubutton"
+              onclick="window.location='editMedicinedetail/{{ searchMed[i][0] }}'"
+            >
+              Edit Medicine
+            </button>
+          </td>
+
+          <td>
+            <form method="POST" action="{{ url_for('deleteMedicinedetail') }}">
+              <input
+                name="delete"
+                type="hidden"
+                class="ibutton"
+                value="{{ searchMed[i][0] }}"
+              />
+              <input
+                type="submit"
+                class="ibutton"
+                value="Delete From Medicine"
+              />
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+      <br />
+    </div>
+
+    {% else %}
+
+    <h3></h3>
+
+    {% endif %}
+  </body>
+</html>

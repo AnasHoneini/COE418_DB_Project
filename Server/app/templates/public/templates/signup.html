@@ -1,77 +1,120 @@
 <!DOCTYPE html>
 <html lang="eng">
-
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta charset="utf-8" />
-  <title>Signup Form</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}" />
-
-</head>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <title>Signup Form</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/form.css') }}"
+    />
+  </head>
   <header class="header">
-    
-    <img src="{{ url_for('static', filename='img/444.png') }}">
-    <p class="title"> LebMedCenter </p>
+    <img src="{{ url_for('static', filename='img/444.png') }}" />
+    <p class="title">LebMedCenter</p>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">   
-    
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}"
+    />
+
     <nav class="navbar">
-        
-        <a href="{{ url_for('home') }}" >Return to Home Page</a>
-
-      
+      <a href="{{ url_for('home') }}">Return to Home Page</a>
     </nav>
   </header>
 
-<body>
-  <div class="container">
-    <form class="form" id="signup" action="/signup" method="POST">
-      <h1 class="title">Create Account</h1>
-      <div class="input-group">
-        <input type="text" id="signupUsername" class="input" autofocus required placeholder="First Name" name="fname" />
-      </div>
-      <div class="input-group">
-        <input type="text" class="input" autofocus placeholder="Last Name" name="lname" />
-      </div>
-      <div class="input-group">
-        <input type="text" class="input" autofocus placeholder="SSN" name="SSN" />
-      </div>
-      <div class="input-group">
-        <input type="password" class="input" autofocus placeholder="Password" name="password" />
-      </div>
-      <div class="input-group">
-        <input type="password" class="input" autofocus placeholder="Confirm password" name=confpass />
-      </div>
-      <div class="input-group">
-        <input type="text" class="input" autofocus placeholder="Address (City Name)" name=address />
-      </div>
-      <div class="input-group">
-        <input type="text" class="input" autofocus placeholder="Phone Number" name=pnumber />
-      </div>
+  <body>
+    <div class="container">
+      <form class="form" id="signup" action="/signup" method="POST">
+        <h1 class="title">Create Account</h1>
+        <div class="input-group">
+          <input
+            type="text"
+            id="signupUsername"
+            class="input"
+            autofocus
+            required
+            placeholder="First Name"
+            name="fname"
+          />
+        </div>
+        <div class="input-group">
+          <input
+            type="text"
+            class="input"
+            autofocus
+            placeholder="Last Name"
+            name="lname"
+          />
+        </div>
+        <div class="input-group">
+          <input
+            type="text"
+            class="input"
+            autofocus
+            placeholder="SSN"
+            name="SSN"
+          />
+        </div>
+        <div class="input-group">
+          <input
+            type="password"
+            class="input"
+            autofocus
+            placeholder="Password"
+            name="password"
+          />
+        </div>
+        <div class="input-group">
+          <input
+            type="password"
+            class="input"
+            autofocus
+            placeholder="Confirm password"
+            name="confpass"
+          />
+        </div>
+        <div class="input-group">
+          <input
+            type="text"
+            class="input"
+            autofocus
+            placeholder="Address (City Name)"
+            name="address"
+          />
+        </div>
+        <div class="input-group">
+          <input
+            type="text"
+            class="input"
+            autofocus
+            placeholder="Phone Number"
+            name="pnumber"
+          />
+        </div>
         <div class="input-group">
           <div class="gender-option">
             <div class="gender">
               <h3>Gender</h3>
-                  <input type="radio" name="gender" value="male" checked />
-                  <label for="male">Male</label>
-                  <input type="radio" name="gender" value="female" />
-                  <label for="female">Female</label>
-                </div>
+              <input type="radio" name="gender" value="male" checked />
+              <label for="male">Male</label>
+              <input type="radio" name="gender" value="female" />
+              <label for="female">Female</label>
             </div>
-      </div>
- 
-  <button class="button" type="submit">Sign Up</button>
-  <p class="text">
-    <a class="link" href="{{ url_for('login') }}" id="linkLogin">Already have an account?</a>
-  </p>
-  {% with messages = get_flashed_messages() %} {% if messages %} {% for msg in messages %}
-  <p class="messages"> {{ msg }} </p>
-  {% endfor %} {% endif %} {% endwith%}
-  </form>
-  </div>
+          </div>
+        </div>
 
-
-
-</body>
-
+        <button class="button" type="submit">Sign Up</button>
+        <p class="text">
+          <a class="link" href="{{ url_for('login') }}" id="linkLogin">
+            Already have an account?
+          </a>
+        </p>
+        {% with messages = get_flashed_messages() %} {% if messages %} {% for
+        msg in messages %}
+        <p class="messages">{{ msg }}</p>
+        {% endfor %} {% endif %} {% endwith%}
+      </form>
+    </div>
+  </body>
 </html>

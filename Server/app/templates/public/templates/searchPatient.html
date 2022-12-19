@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Patient</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/updatepatient.css') }}"
+    />
+  </head>
+
+  <body>
+    <style>
+      .text {
+        width: 250px;
+        padding: 10px 5px;
+        border: none;
+        border: solid 1px rgb(37, 62, 99) !important;
+        border-radius: 5px;
+      }
+      .ibutton {
+        background-color: #0079ca;
+        border: 2px;
+        border-radius: 10px;
+        color: white;
+        padding: 12px 28px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+      }
+    </style>
+
+    <div style="text-align: center;">
+      <h1 style="color: rgb(0, 0, 0);">Search Patient</h1>
+      <br />
+      <div style="margin-left: -10px;">
+        <form action="" method="POST">
+          <label
+            for="id"
+            style="font-weight: bold; font-size: large; color: rgb(2, 2, 146);"
+          >
+            Patient SSN
+          </label>
+          &nbsp;&nbsp;
+          <input type="text" class="text" name="pSSN" id="id" />
+          <br />
+          <br />
+          <button class="ibutton" type="submit">Search</button>
+          <br />
+          <br />
+          <a class="ibutton" href="{{ url_for('staffPage') }}">
+            Return to Home Page
+          </a>
+          {% with messages = get_flashed_messages() %} {% if messages %} {% for
+          msg in messages %}
+          <div>
+            <br />
+            <p style="color: rgb(248, 11, 11); text-align: center;">
+              <strong>{{ msg }}</strong>
+            </p>
+          </div>
+          {% endfor %} {% endif %} {% endwith%}
+        </form>
+      </div>
+    </div>
+
+    <br />
+    <div>
+      {% if searchpat %}
+      <table border="1">
+        <tr>
+          <th>SSN</th>
+          <th>Patient First Name</th>
+          <th>Patient Last Name</th>
+          <th>Patient Age</th>
+          <th>Patient Address</th>
+          <th>Patient Phone Number</th>
+          <th>Patient Family Number</th>
+          <th>RoomNb</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+
+        <tr>
+          {% for i in range(0,searchpat|length) %}
+        </tr>
+
+        <tr>
+          <td>{{ searchpat[i][0] }}</td>
+          <td>{{ searchpat[i][1] }}</td>
+          <td>{{ searchpat[i][2] }}</td>
+          <td>{{ searchpat[i][3] }}</td>
+          <td>{{ searchpat[i][4] }}</td>
+          <td>{{ searchpat[i][6] }}</td>
+          <td>{{ searchpat[i][7] }}</td>
+          <td>{{ searchpat[i][12] }}</td>
+
+          <td>
+            <button
+              type="button"
+              class="ibutton"
+              onclick="window.location='editpatientdetail/{{ searchpat[i][0] }}'"
+            >
+              Edit Patient
+            </button>
+          </td>
+
+          <td>
+            <form method="POST" action="{{ url_for('deletepatientdetail') }}">
+              <input
+                name="delete"
+                type="hidden"
+                class="ibutton"
+                value="{{ searchpat[i][0] }}"
+              />
+              <input
+                type="submit"
+                class="ibutton"
+                value="Delete From Patient"
+              />
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+      <br />
+    </div>
+
+    {% else %}
+
+    <h3></h3>
+
+    {% endif %}
+  </body>
+</html>

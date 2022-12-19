@@ -1,148 +1,140 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
 body {
-
-    --color-primary: #0084a7;
-    --color-primary-dark:  #0a234c;
-    --color-secondary: #72a9c6;
-    --color-error: #cc3333;
-    --color-success: #4bb544;
-    --border-radius: 5% ;
+  --color-primary: #0084a7;
+  --color-primary-dark: #0a234c;
+  --color-secondary: #72a9c6;
+  --color-error: #cc3333;
+  --color-success: #4bb544;
+  --border-radius: 5%;
 }
-*{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin:0; padding: 0;
-    box-sizing: border-box;
-    outline: none; border: none;
-    transition: all .2s ease-out;
-    text-decoration: none;
-}
-
-html{
-    font-size: 62.5%;
-    overflow-x: hidden;
-    scroll-padding-top: 7rem;
-    scroll-behavior: smooth;
+* {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  transition: all 0.2s ease-out;
+  text-decoration: none;
 }
 
-
-section{
-    padding:2rem ;
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 7rem;
+  scroll-behavior: smooth;
 }
 
-.messages{
-    color: red;
-    font-size: large;
+section {
+  padding: 2rem;
 }
 
-.heading{
-    text-align: center;
-    padding-bottom: 0rem;
-    color:#0084a7;
-    font-size: 5rem;
+.messages {
+  color: red;
+  font-size: large;
 }
 
-.header .title{
-    position: absolute;
-    left : 12%;
-    top: 45%;
-    color:#0084a7; 
-    font-size: 25px; 
+.heading {
+  text-align: center;
+  padding-bottom: 0rem;
+  color: #0084a7;
+  font-size: 5rem;
 }
 
-.heading span{
-    color:var(--green);
+.header .title {
+  position: absolute;
+  left: 12%;
+  top: 45%;
+  color: #0084a7;
+  font-size: 25px;
 }
 
-
-.header{
-    padding:2rem 9%;
-    position:fixed;
-    top:-1rem; left: 0; right: 0;
-    z-index: 200;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #fff;
-    color:#0084a7;
+.heading span {
+  color: var(--green);
 }
 
-.header img{
-    width: 5rem;
+.header {
+  padding: 2rem 9%;
+  position: fixed;
+  top: -1rem;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  color: #0084a7;
 }
 
-.header p{
-    font-size: small;
-  
+.header img {
+  width: 5rem;
 }
 
-.header .navbar a{
-    position: relative;
-    top: 25px;
-    right: 10px;
-    font-size: 22px;
-    color: var(--light-color);
-    
+.header p {
+  font-size: small;
 }
 
-.header .navbar a:hover{
-    color: var(--green);
+.header .navbar a {
+  position: relative;
+  top: 25px;
+  right: 10px;
+  font-size: 22px;
+  color: var(--light-color);
+}
+
+.header .navbar a:hover {
+  color: var(--green);
 }
 
 /* media queries  */
-@media (max-width:991px){
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
 
-    html{
-        font-size: 55%;
-    }
+  .header {
+    padding: 2rem;
+  }
 
-    .header{
-        padding: 2rem;
-    }
-
-    section{
-        padding:2rem;
-    }
-
+  section {
+    padding: 2rem;
+  }
 }
 
-@media (max-width:768px){
+@media (max-width: 768px) {
+  #menu-btn {
+    display: initial;
+  }
 
-    #menu-btn{
-        display: initial;
-    }
+  .header .navbar {
+    position: absolute;
+    top: 115%;
+    right: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--box-shadow);
+    width: 30rem;
+    border: var(--border);
+    background: #fff;
 
-    .header .navbar{
-        position: absolute;
-        top:115%; right: 2rem;
-        border-radius: .5rem;
-        box-shadow: var(--box-shadow);
-        width: 30rem;
-        border: var(--border);
-        background: #fff;
+    transform-origin: top right;
+  }
 
-        transform-origin: top right;
-      
-    }
+  .header .navbar.active {
+    transform: scale(1);
+    opacity: 1;
+    transition: 0.2s ease-out;
+  }
 
-    .header .navbar.active{
-        transform: scale(1);
-        opacity: 1;
-        transition: .2s ease-out;
-    }
-
-    .header .navbar a{
-        font-size: 20rem;
-        display: block;
-        margin:2.5rem;
-    }
-
+  .header .navbar a {
+    font-size: 20rem;
+    display: block;
+    margin: 2.5rem;
+  }
 }
 
-@media (max-width:450px){
-
-    html{
-        font-size: 50%;
-    }
-
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
 }
-

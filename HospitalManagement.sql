@@ -15,6 +15,7 @@ PatientEnteringDateRoom DATE,
 PatientLeavingDateRoom DATE,
 RegistrationDate DATE,
 ReceptionistSSN DECIMAL(50),
+MedicineName VARCHAR(50),
 RoomNb DECIMAL(4,0),
 PRIMARY KEY(PatientSSN)
 );
@@ -36,7 +37,6 @@ DoctorFirstName VARCHAR(50) NOT NULL,
 DoctorLastName VARCHAR(50) NOT NULL,
 DoctorAge DECIMAL(3,0),
 DoctorSpecialization VARCHAR(50) NOT NULL,
-DoctorPass VARCHAR(50) NOT NULL,
 DoctorAddress VARCHAR(100),
 DoctorGender VARCHAR(8),
 DoctorPhoneNumber DECIMAL(8,0),
@@ -48,7 +48,6 @@ NurseSSN DECIMAL(5,0),
 NurseFirstName VARCHAR(50) NOT NULL,
 NurseLastName VARCHAR(50) NOT NULL,
 NurseAge DECIMAL(3,0),
-NursePass VARCHAR(50) NOT NULL,
 NurseAddress VARCHAR(100),
 NurseGender VARCHAR(8),
 NursePhoneNumber DECIMAL(8,0),
@@ -75,18 +74,6 @@ BillStatus VARCHAR(50),
 PRIMARY KEY(BillNb)
 );
 
-CREATE TABLE MEDICALRECORD (
-MedicalRecordID DECIMAL(5,0),
-Diseases VARCHAR(100),
-PreviousSurgeries VARCHAR(100),
-Allergies VARCHAR(100) NOT NULL,
-BloodType VARCHAR(3) NOT NULL,
-VaccinationHistory VARCHAR(100),
-recordTDate Date,
-PatientSSN DECIMAL(50),
-PRIMARY KEY(MedicalRecordID),
-Foreign Key (PatientSSN) REFERENCES PATIENT(PatientSSN)
-);
 
 CREATE TABLE HFLOOR (
 FloorNb DECIMAL(2,0),
@@ -105,25 +92,15 @@ Foreign Key (FloorNb) REFERENCES HFLOOR(FloorNb)
 );
 
 CREATE TABLE APPOINTMENT (
-AppointmentNb DECIMAL(4,0),
 AppointmentDate DATE,
 AppointmentTime TIME,
-AppointmentStatus VARCHAR(100),
 PatientSSN DECIMAL(50),
 DoctorSSN DECIMAL(5,0),
-PRIMARY KEY (AppointmentNb, PatientSSN, DoctorSSN),
+PRIMARY KEY (PatientSSN, DoctorSSN),
 FOREIGN KEY (PatientSSN) REFERENCES PATIENT(PatientSSN),
 FOREIGN KEY (DoctorSSN) REFERENCES DOCTOR(DoctorSSN)
 );
 
-CREATE TABLE TAKES (
-MedicineDuration DATE,
-PatientSSN DECIMAL(50),
-MedicineName VARCHAR(50),
-PRIMARY KEY (MedicineDuration, PatientSSN, MedicineName),
-FOREIGN KEY (PatientSSN) REFERENCES PATIENT(PatientSSN),
-FOREIGN KEY (MedicineName) REFERENCES MEDICINE(MedicineName)
-);
 
 CREATE TABLE PAYMENT (
 PaymentYEAR DATE,
@@ -152,3 +129,7 @@ ADD Foreign Key (RoomNb) REFERENCES ROOM(RoomNb);
 
 ALTER TABLE PATIENT
 ADD Foreign Key (ReceptionistSSN) REFERENCES RECEPTIONIST(ReceptionistSSN);
+
+ALTER TABLE PATIENT
+ADD Foreign Key (MedicineName) REFERENCES MEDICINE(MedicineName);
+ 

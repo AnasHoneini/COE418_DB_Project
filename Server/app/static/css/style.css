@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
 
 :root {
   --blue: #0084a7;
@@ -7,10 +7,9 @@
   --midblue: #0084a7;
   --darkblue: #0a234c;
   --lightestblue: #caeafb;
-  
 }
 * {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -22,7 +21,7 @@
 section {
   padding: 2rem 9%;
 }
-section:nth-child(even){
+section:nth-child(even) {
   background: #f5f5f5;
 }
 
@@ -157,7 +156,6 @@ section:nth-child(even){
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
   gap: 2rem;
-  
 }
 
 .review .box-container .box {
@@ -197,7 +195,7 @@ section:nth-child(even){
 }
 
 .review .box-container .box::before {
-  content: "";
+  content: '';
   position: absolute;
   top: -4rem;
   left: 50%;
@@ -312,4 +310,3 @@ section:nth-child(even){
 @media only screen and (max-width: 425px) {
   /*Small smartphones [325px -> 425px]*/
 }
-  

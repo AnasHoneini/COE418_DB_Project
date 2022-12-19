@@ -32,6 +32,18 @@
     </header>
 
     <section class="row" id="row">
+      {% with messages = get_flashed_messages(category_filter=['error']) %} {%
+        if messages %} {% for msg in messages %}
+        
+        <p class="messages">{{ msg }}</p>
+  
+        {% endfor %} {% endif %} {% endwith%}
+        {% with messages = get_flashed_messages(category_filter=['info']) %} {%
+          if messages %} {% for msg in messages %}
+          
+          <p class="messages">{{ msg }}</p>
+    
+          {% endfor %} {% endif %} {% endwith%}
       <div class="full-box">
         <div class="box-side">
           <h1 class="heading_staff">Caferia Opening Hours</h1>
@@ -91,7 +103,7 @@
               <h3>Patient</h3>
               <a href="{{ url_for('create_patient') }}" class="btn2"> Add </a> <br />
               <a href="{{ url_for('update_patient') }}" class="btn2"> Edit </a> <br />
-              <a href="#" class="btn2"> Search </a> <br />
+              <a href="{{ url_for('searchPatient') }}" class="btn2"> Search </a> <br />
               <a href="{{ url_for('inv') }}" class="btn2"> Show invoice </a>
             </div>
 
@@ -99,9 +111,16 @@
               <i class="fas fa-pills"></i>
               <h3>Medicine</h3>
               <a href="{{ url_for('newMedicine') }}" class="btn2"> Add </a> <br />
-              <a href="#" class="btn2"> Edit </a> <br />
-              <a href="#" class="btn2"> Search </a> <br />
-              <a href="#" class="btn2"> Show All </a>
+              <a href="{{ url_for('update_medicine') }}" class="btn2"> Edit </a> <br />
+              <a href="{{ url_for('searchMedicine') }}" class="btn2"> Search </a> <br>
+              <br>
+              <div class="box1">
+               
+                <h3>Show Data</h3>
+                <a href="{{ url_for('showAllDoctors') }}" class="btn2"> Show All Doctors </a> <br />
+                <a href="{{ url_for('showAllNurses') }}" class="btn2"> Show All Nurses </a> <br />
+                <a href="{{ url_for('showAllRooms') }}" class="btn2"> Show All Rooms </a> <br />
+
               
             </div>
           </div>

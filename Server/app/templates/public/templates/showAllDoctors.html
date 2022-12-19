@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show All Doctors</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/updatepatient.css') }}"
+    />
+    
+</head>
+
+<body>
+    <div class="astatus">
+        <h1 style="color: rgb(0, 0, 0); text-align: center; " > Doctors </h1><br>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for msg in messages %}
+                    <p style="font-weight: bolder; color: rgb(0, 0, 0); font-size: larger;"> {{ msg }} </p>
+                {% endfor %}
+            {% endif %}
+        {% endwith%}
+    
+        <table >
+            <tr>
+                <th>Doctor SSN</th>
+                <th>Doctor First Name</th>
+                <th>Doctor Last Name</th>
+                <th>Doctor Age</th>
+                <th>Doctor Address</th>
+                <th>Patient Phone Number</th>
+                <th>Doctor Specialization</th>
+                <th>Doctor Gender</th>
+               
+                
+            </tr>
+            {% for i in range(0,showD|length) %}
+            <tr>
+                <td> {{ showD[i][0] }} </td>
+                <td> {{ showD[i][1] }} </td>
+                <td> {{ showD[i][2] }} </td>
+                <td> {{ showD[i][3] }} </td>
+                <td> {{ showD[i][5] }} </td>
+                <td> {{ showD[i][7] }} </td>
+                <td> {{ showD[i][4] }} </td>
+                <td> {{ showD[i][6] }} </td>
+               
+                
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+    
+        
+        <br><br>
+        <a class="ibutton" href="{{ url_for('staffPage') }}" >Return to Home Page</a>
+</form>
+    </div>
+</body>
+</html>

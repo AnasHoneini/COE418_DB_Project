@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
 
 :root {
   --blue: #0084a7;
@@ -10,7 +10,7 @@
 }
 
 * {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -26,22 +26,18 @@
   font-size: 5rem;
 }
 
-
-
 .row .full-box {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   gap: 2rem;
-  
 }
 .row .full-box .box-side {
   padding: 2rem;
   text-align: center;
   background: var(--lightestblue);
   border-radius: 0.5rem;
-  width : 60%;
+  width: 60%;
   margin-left: 20%;
- 
 }
 
 .row .full-box .box-side h1 {
@@ -66,9 +62,8 @@
   text-align: center;
   background: var(--lightestblue);
   border-radius: 0.5rem;
-  width : 60%;
+  width: 60%;
   text-align: left;
- 
 }
 
 .row .full-box .function .box-side .box1 i {
@@ -76,14 +71,12 @@
   font-size: 2rem;
   padding-bottom: 1.5rem;
   padding-top: 1.5rem;
-  
 }
 
 .row .full-box .function .box-side .box1 h3 {
   color: var(--darkblue);
   font-size: 2rem;
   padding-bottom: 1rem;
-
 }
 
 /*calendar css*/
@@ -94,8 +87,6 @@
   height: 52rem;
   background-color: var(--light-color);
   border-radius: 0.5rem;
- 
- 
 }
 
 .row .full-box .box-mid .month {
@@ -196,12 +187,10 @@
   color: rgba(255, 255, 255, 0.724);
 }
 
-
 .footer .box-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
   gap: 2rem;
- 
 }
 
 .footer .box-container .box h3 {
@@ -220,7 +209,6 @@
 .footer .box-container .box a i {
   padding-right: 0.5rem;
   color: var(--midblue);
-  
 }
 /*Animation on hover on links in footer*/
 .footer .box-container .box a:hover i {

@@ -1,12 +1,12 @@
-body { 
-    --color-primary: #0084a7;
-    --color-primary-dark:  #0a234c;
-    --color-secondary: #72a9c6;
-    --color-error: #cc3333;
-    --color-success: #4bb544;
-    --border-radius: 5% ;
+body {
+  --color-primary: #0084a7;
+  --color-primary-dark: #0a234c;
+  --color-secondary: #72a9c6;
+  --color-error: #cc3333;
+  --color-success: #4bb544;
+  --border-radius: 5%;
 }
-.logo{
+.logo {
   margin: 0;
   padding: 0;
   width: 250px;
@@ -17,36 +17,30 @@ body {
 }
 
 .sidebar {
-    margin: 0;
-    padding: 0;
-    width: 250px;
-    background-color: #ffff;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 6px 14px;
-
-  }
-.logo .i{
-    text-decoration: none;
+  margin: 0;
+  padding: 0;
+  width: 250px;
+  background-color: #ffff;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 6px 14px;
+}
+.logo .i {
+  text-decoration: none;
 }
 
-  /* Sidebar links */
-  .sidebar a {
-    display: block;
-    padding: 16px;
-    text-decoration: none;
-    color: black;
-  }
-
-  .header .sidebar a:hover{
-    color: #ffff;
-    cursor: pointer;
-    background-color: var(--color-primary);
+/* Sidebar links */
+.sidebar a {
+  display: block;
+  padding: 16px;
+  text-decoration: none;
+  color: black;
 }
- 
-  
-  
 
-  
+.header .sidebar a:hover {
+  color: #ffff;
+  cursor: pointer;
+  background-color: var(--color-primary);
+}

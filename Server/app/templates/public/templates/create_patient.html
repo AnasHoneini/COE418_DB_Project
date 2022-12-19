@@ -8,18 +8,15 @@
     <!---Custom CSS File--->
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/patient.css') }}"
-     
-    />
-  </head>
-  <body>
-    {% with messages = get_flashed_messages(category_filter=['info']) %} {%
-      if messages %} {% for msg in messages %}
-      
-      <p class="messages">{{ msg }}</p>
+      href="{{ url_for('static', filename='css/patient.css') }}">
 
-      {% endfor %} {% endif %} {% endwith%}
+  </head>
+  
+
+  <body>
+    
     <section class="container">
+      <a href="{{ url_for('staffPage') }}" >Return to Home Page</a>
       <header>Patient Form</header>
       <form action="/create_patient" class="form" method="POST">
         <div class="input-box">
@@ -95,10 +92,15 @@
             <label>Date Leaving the Room</label>
             <input type="date" placeholder="Date Leaving the Room" name="PLDR"/>
           </div>
+          {% with messages = get_flashed_messages(category_filter=['info']) %} {%
+            if messages %} {% for msg in messages %}
             
+            <p class="messages">{{ msg }}</p>
+      
+            {% endfor %} {% endif %} {% endwith%}
         </div>
         <button class="button" type="submit">Submit</button>
-
+        
       </form>
     </section>
   </body>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show All Nurses</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/updatepatient.css') }}"
+    />
+    
+</head>
+
+<body>
+    <div class="astatus">
+        <h1 style="color: rgb(0, 0, 0); text-align: center; " > Nurses </h1><br>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for msg in messages %}
+                    <p style="font-weight: bolder; color: rgb(0, 0, 0); font-size: larger;"> {{ msg }} </p>
+                {% endfor %}
+            {% endif %}
+        {% endwith%}
+    
+        <table >
+            <tr>
+                <th>Nurse SSN</th>
+                <th>Nurse First Name</th>
+                <th>Nurse Last Name</th>
+                <th>Nurse Age</th>
+                <th>Nurse Address</th>
+                <th>Nurse Phone Number</th>
+                <th>Nurse Gender</th>
+               
+                
+            </tr>
+            {% for i in range(0,showN|length) %}
+            <tr>
+                <td> {{ showN[i][0] }} </td>
+                <td> {{ showN[i][1] }} </td>
+                <td> {{ showN[i][2] }} </td>
+                <td> {{ showN[i][3] }} </td>
+                <td> {{ showN[i][4] }} </td>
+                <td> {{ showN[i][7] }} </td>
+                <td> {{ showN[i][6] }} </td>
+               
+                
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+    
+        
+        <br><br>
+        <a class="ibutton" href="{{ url_for('staffPage') }}" >Return to Home Page</a>
+</form>
+    </div>
+</body>
+</html>

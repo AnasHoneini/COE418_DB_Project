@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="eng">
-<header class="header">
-   
-    <img src="{{ url_for('static', filename='img/444.png') }}">
-    <p class="title"> LebMedCenter </p>
+  <header class="header">
+    <img src="{{ url_for('static', filename='img/444.png') }}" />
+    <p class="title">LebMedCenter</p>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">   
-    
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}"
+    />
+
     <nav class="navbar">
-        
-        <a href="{{ url_for('login') }}" >Login</a>
-        <a href="{{ url_for('signup') }}" >Signup</a>
-
-        
-    
+      <a href="{{ url_for('login') }}">Login</a>
+      <a href="{{ url_for('signup') }}">Signup</a>
     </nav>
-</header>
+  </header>
 </html>

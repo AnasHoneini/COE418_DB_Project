@@ -12,17 +12,16 @@
   </head>
 
   <header class="header">
-   
-    <img src="{{ url_for('static', filename='img/444.png') }}">
-    <p class="title"> LebMedCenter </p>
-  
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">   
-    
+    <img src="{{ url_for('static', filename='img/444.png') }}" />
+    <p class="title">LebMedCenter</p>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/base.css') }}"
+    />
+
     <nav class="navbar">
-        
-        <a href="{{ url_for('home') }}" >Return to Home Page</a>
-  
-      
+      <a href="{{ url_for('home') }}">Return to Home Page</a>
     </nav>
   </header>
 
@@ -71,8 +70,14 @@
             name="password"
           />
         </div>
-        {% with messages = get_flashed_messages(category_filter=['error']) %} {%
+        {% with messages = get_flashed_messages(category_filter=['info']) %} {%
         if messages %} {% for msg in messages %}
+
+        <p class="messages">{{ msg }}</p>
+
+        {% endfor %} {% endif %} {% endwith%} {% with messages =
+        get_flashed_messages(category_filter=['error']) %} {% if messages %} {%
+        for msg in messages %}
 
         <p class="messages">{{ msg }}</p>
 

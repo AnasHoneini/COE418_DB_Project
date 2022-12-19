@@ -9,5 +9,3 @@ mydb = mysql.connector.connect(
 )
 
 my_cursor = mydb.cursor(buffered=True)
-
-

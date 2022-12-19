@@ -12,14 +12,12 @@
     href="{{ url_for('static', filename='css/medicine.css') }}"
      />
   </head>
-  <body>
-    {% with messages = get_flashed_messages(category_filter=['info']) %} {%
-      if messages %} {% for msg in messages %}
-      
-      <p class="messages">{{ msg }}</p>
 
-      {% endfor %} {% endif %} {% endwith%}
+  <body>
+    
     <section class="container">
+      <a href="{{ url_for('staffPage') }}" >Return to Home Page</a>
+
       <header>Medicine Form</header>
       <form action="/newMedicine" class="form" method="POST">
         <div class="input-box">
@@ -57,7 +55,12 @@
             <label>Doctor SSN</label>
             <input type="text" placeholder="Doctor SSN" name="DSSN" required/>
           </div>
+          {% with messages = get_flashed_messages(category_filter=['info']) %} {%
+            if messages %} {% for msg in messages %}
             
+            <p class="messages" style="color:red">{{ msg }}</p>
+      
+            {% endfor %} {% endif %} {% endwith%}
         </div>
         <button class="button" type="submit">Submit</button>
       </form>

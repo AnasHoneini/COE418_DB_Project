@@ -1,10 +1,9 @@
 p {
   padding: 0;
   margin: 0 0 1rem 0;
- 
 }
 body {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   margin: 0;
 }
 table {
@@ -44,15 +43,13 @@ p {
 /* header */
 .inv-header {
   display: flex;
-
 }
-
 
 .inv-header h2 {
   font-size: 20px;
   margin: 0 0 0.3rem 0;
 }
-.inv-header p  {
+.inv-header p {
   font-size: 15px;
   padding: 3px 0;
 }
@@ -63,15 +60,14 @@ p {
   text-align: left;
 }
 
-
 /* footer */
 .inv-footer {
-    display: flex;
-    flex-direction: row;
-  }
-  .inv-footer > :nth-child(1) {
-    flex: 2;
-  }
-  .inv-footer > :nth-child(2) {
-    flex: 1;
-  }
+  display: flex;
+  flex-direction: row;
+}
+.inv-footer > :nth-child(1) {
+  flex: 2;
+}
+.inv-footer > :nth-child(2) {
+  flex: 1;
+}

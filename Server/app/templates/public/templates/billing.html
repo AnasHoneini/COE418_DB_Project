@@ -1,188 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<title>Invoice</title>
-		<link
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Invoice</title>
+    <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/billing.css') }}"
     />
-	</head>
-	<body>
-	<div class="inv-container">
-			<div class="inv-title">
-				<h1>Invoice #number</h1>
-			</div>
-			<img src="{{ url_for('static', filename='img/444.png') }}" >
-			<div>
-				<h2>LebMedCenter</h2>
-				
-				<p>Lebanon </p>
-				<p>Beirut Branch</p>
-				<p>+961 04 540 692 | LebMedCenter@gmail.com</p> <br><br>
-	
-				</div>
-				<div >
-					<table>
-						<tr>
-							<th>PatientId</th>
-							<td>1234</td>
-						</tr>
-						<tr>
-							<th>Patient FirstName</th>
-							<td>Pamela</td>
-						</tr>
-                        <tr>
-							<th>Patient LastName</th>
-							<td>Karam</td>
-						</tr>
+  </head>
+  <body>
+    <div class="inv-container">
+      <div class="inv-title">
+        <h1>Invoice #number</h1>
+      </div>
+      <img src="{{ url_for('static', filename='img/444.png') }}" />
+      <div>
+        <h2>LebMedCenter</h2>
 
-                        <tr>
-							<th>Address</th>
-							<td>Beirut</td>
-						</tr>  
+        <p>Lebanon</p>
+        <p>Beirut Branch</p>
+        <p>+961 04 540 692 | LebMedCenter@gmail.com</p>
+        <br />
+        <br />
+      </div>
+      <div>
+        <table>
+          <tr>
+            <th>PatientId</th>
+            <td>1234</td>
+          </tr>
+          <tr>
+            <th>Patient FirstName</th>
+            <td>Pamela</td>
+          </tr>
+          <tr>
+            <th>Patient LastName</th>
+            <td>Karam</td>
+          </tr>
 
-						<tr>
-							<th>Insurance Type</th>
-							<td>Type A</td>
-						</tr>
-					</table><br><br>
-				</div>
+          <tr>
+            <th>Address</th>
+            <td>Beirut</td>
+          </tr>
 
-			
-			
-			<div class="inv-body">
-				<table>
-					<thead>
-						<th>Medicine</th>
-						<th>Quantity</th>
-						<th>Price</th>
-					</thead>
-					<tbody>
-						<tr>
-							<td>
-								<h4>Panadol</h4>
-								<p> mild analgesic and antipyretic</p>
-							</td>
-							<td>1</td>
-							<td>20</td>
-						</tr>
-						<tr>
-							<td>
-								<h4>Paracetamol</h4>
-								<p>mild analgesic and antipyretic</p>
-							</td>
-							<td>1</td>
-							<td>20</td>
-						</tr>
-					</tbody> 
-				</table>
-                <table>
-                    <br><br>
-					<thead>
-						<th>Procedure</th>
-						<th>Price</th>
-					</thead>
-					<tbody>
-						<tr>
-							<td>
-								<h4>Biopsy</h4>
-								<p>removal of tissues for examination</p>
-							</td>
-							<td>500</td>
-							
-						</tr>
-						<tr>
-							<td>
-								<h4>Medical Examination</h4>
-								<p>Doctor Anas</p>
-							</td>
-							<td>300</td>
-							
-						</tr>
-					</tbody>
-                  
-				</table> <br><br>
+          <tr>
+            <th>Insurance Type</th>
+            <td>Type A</td>
+          </tr>
+        </table>
+        <br />
+        <br />
+      </div>
 
-				<table>
-					<thead>
-						<th>RoomType</th>
-						<th>Rank</th>
-						<th>Price</th>
-						<th>Admit Date</th>
-						<th>Release Date</th>
-					</thead>
-					<tbody>
-						
-						<tr>
-							<td>
-								<h4>Single Bed</h4>
-							</td>
-							<td>vip</td>
-							<td>200</td>
-							<td>12/14/2022</td>
-							<td>12/17/2022</td>
-							
-						</tr>
+      <div class="inv-body">
+        <table>
+          <thead>
+            <th>Medicine</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <h4>Panadol</h4>
+                <p>mild analgesic and antipyretic</p>
+              </td>
+              <td>1</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td>
+                <h4>Paracetamol</h4>
+                <p>mild analgesic and antipyretic</p>
+              </td>
+              <td>1</td>
+              <td>20</td>
+            </tr>
+          </tbody>
+        </table>
+        <table>
+          <br />
+          <br />
+          <thead>
+            <th>Procedure</th>
+            <th>Price</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <h4>Biopsy</h4>
+                <p>removal of tissues for examination</p>
+              </td>
+              <td>500</td>
+            </tr>
+            <tr>
+              <td>
+                <h4>Medical Examination</h4>
+                <p>Doctor Anas</p>
+              </td>
+              <td>300</td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
+        <br />
 
+        <table>
+          <thead>
+            <th>RoomType</th>
+            <th>Rank</th>
+            <th>Price</th>
+            <th>Admit Date</th>
+            <th>Release Date</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <h4>Single Bed</h4>
+              </td>
+              <td>vip</td>
+              <td>200</td>
+              <td>12/14/2022</td>
+              <td>12/17/2022</td>
+            </tr>
+          </tbody>
+        </table>
+        <table>
+          <br />
+          <br />
 
-		
-					</tbody> 
-				</table>
-                <table>
-                    <br><br>
-					
-					<thead>
-						<th>Procedure</th>
-						<th>Price</th>
-					</thead>
-					<tbody>
-						<tr>
-							<td>
-								<h4>Biopsy</h4>
-								<p>removal of tissues for examination</p>
-							</td>
-							<td>500</td>
-							
-						</tr>
-						<tr>
-							<td>
-								<h4>Medical Examination</h4>
-								<p>Doctor Anas</p>
-							</td>
-							<td>300</td>
-							
-						</tr>
-					</tbody>
-                  
-				</table> <br><br>
-
-
-
-			</div>
-			<div class="inv-footer">
-				
-            
-                <div></div>
-				<div>
-					<table>
-						<tr>
-							<th>Sub total</th>
-							<td>200</td>
-						</tr>
-						<tr>
-							<th>Insurance Coverage</th>
-							<td>10</td>
-						</tr>
-						<tr>
-							<th>Grand total</th>
-							<td>1200</td>
-						</tr>
-					</table>
-				</div>
-			</div>
-		</div>
-	</body>
+          <thead>
+            <th>Procedure</th>
+            <th>Price</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <h4>Biopsy</h4>
+                <p>removal of tissues for examination</p>
+              </td>
+              <td>500</td>
+            </tr>
+            <tr>
+              <td>
+                <h4>Medical Examination</h4>
+                <p>Doctor Anas</p>
+              </td>
+              <td>300</td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
+        <br />
+      </div>
+      <div class="inv-footer">
+        <div></div>
+        <div>
+          <table>
+            <tr>
+              <th>Sub total</th>
+              <td>200</td>
+            </tr>
+            <tr>
+              <th>Insurance Coverage</th>
+              <td>10</td>
+            </tr>
+            <tr>
+              <th>Grand total</th>
+              <td>1200</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

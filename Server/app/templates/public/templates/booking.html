@@ -1,79 +1,110 @@
 <!DOCTYPE html>
 <html lang="eng">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <title>Booking Form </title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <title>Booking Form</title>
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-  />
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/form.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
 
-</head>
+  <body>
+    <div class="container">
+      <form class="form" id="book" method="POST">
+        <h1 class="title">Book Appointment</h1>
 
-<body>
-    <div class= "container" >
-        <form class="form" id="book" method="POST">
-            <h1 class="title">Book Appointment</h1>
-            <div class="input-group">
-                <input type="text" class="input" id = "name" autofocus placeholder="Patient name" name = "patname">
-    
-            </div>
-            <div class="input-group">
-                <input type="text" class="input" autofocus placeholder="ID" name = "patID">
-
-            </div>
-            <div class="input-group">
-                <input type="text" class="input" id="PN" autofocus placeholder="Phone Number" name = "patage">
-
-            </div>
-            <div class="input-group">
-                <input type="text" class="input" id="MSG" autofocus placeholder="Details for appointment">
-      
-            </div>
-            <div class="input-group">
-                <input type="date" class="input" autofocus placeholder="Date">
-            </div>
-
-            <button class="button" type="button" onclick="submit_entry()">Continue</button>
-
-            <p class="text">
-                <a class="link" href="./" id="linkLogin">New patient?</a> <br>
-                <a class="link" href="./" id="linkbookroom">Book a room?</a>
-            </p>
-
-       </form>
-       
-    </div>
-</body>
-    
-    <section class="side" id="side">
-       
-        <div class="box-container">
-         
-            <div class="box">
-                <h1 class="heading"> Appointment Notes </h1>
-                <p class="text">
-                  You can only book your appointment between <br> 8 A.M to 10 P.M 
-                  <br><br>
-                  In other times you can call our ambulance which is available 24/7 on:
-                  <br>
-                </p>
-                <i class="fas fa-phone"></i> +961 04 540 692 <br>
-                <i class="fas fa-phone"></i> +961 03 439 047 <br> <br>
-                <hr>
-                <p class="text">
-                    Please make sure to check the doctor's availibility below prior to booking an appointment
-                </p>
-
-                <a href="#"><i class="fas fa-notes-medical"></i> Doctor's schedule </a>
-
-            </div>
+        <div class="input-group">
+          <input
+            type="text"
+            class="input"
+            id="name"
+            autofocus
+            placeholder="Patient SSN"
+            name="patSSN"
+          />
         </div>
-    </section>
-    
-    <!-- 
+        <div class="input-group">
+          <input
+            type="text"
+            class="input"
+            autofocus
+            placeholder="DoctorSSN"
+            name="DSSN"
+          />
+        </div>
+        <div class="input-group">
+          <input
+            type="date"
+            class="input"
+            id="PN"
+            autofocus
+            placeholder="AppointmentDate"
+            name="AppDate"
+          />
+        </div>
+        <div class="input-group">
+          <input
+            type="time"
+            class="input"
+            id="MSG"
+            autofocus
+            placeholder="Appointment Time"
+            name="AppTime"
+          />
+        </div>
+
+        <button class="button" type="submit">Submit</button>
+
+        <p class="text">
+          <a class="link" href="./" id="linkLogin">New patient?</a>
+          <br />
+          <a class="link" href="./" id="linkbookroom">Book a room?</a>
+        </p>
+      </form>
+    </div>
+  </body>
+
+  <section class="side" id="side">
+    <div class="box-container">
+      <div class="box">
+        <h1 class="heading">Appointment Notes</h1>
+        <p class="text">
+          You can only book your appointment between
+          <br />
+          8 A.M to 10 P.M
+          <br />
+          <br />
+          In other times you can call our ambulance which is available 24/7 on:
+          <br />
+        </p>
+        <i class="fas fa-phone"></i>
+        +961 04 540 692
+        <br />
+        <i class="fas fa-phone"></i>
+        +961 03 439 047
+        <br />
+        <br />
+        <hr />
+        <p class="text">
+          Please make sure to check the doctor's availibility below prior to
+          booking an appointment
+        </p>
+
+        <a href="#">
+          <i class="fas fa-notes-medical"></i>
+          Doctor's schedule
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 
     <script>
         function submit_entry() {
         
@@ -87,5 +118,4 @@
         console.log(entry);
 }
     </script>
--->
-</html>
+--></html>

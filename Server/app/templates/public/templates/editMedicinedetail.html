@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Medicine</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/updatemedicine.css') }}"
+    />
+  </head>
+  <style>
+    .ibutton {
+      background-color: #0079ca;
+      border: 2px;
+      border-radius: 10px;
+      color: white;
+      padding: 12px 28px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+    }
+  </style>
+  <body>
+    <div class="form1">
+      <h1 style="color: rgb(11, 29, 129); text-align: center;">
+        Edit Medicine
+      </h1>
+      <br />
+      {% for i in range(0,editMed|length) %}
+      <form action="/editMedicinedetail/{{ editMed[i][0] }}" method="POST">
+        <label for="id">Medicine Name:</label>
+        <b>{{ editMed[i][0] }}</b>
+        <br />
+        <br />
+
+        <label for="Name">Old Medicine Type:</label>
+        <b>{{ editMed[i][1] }}</b>
+        <br />
+        <br />
+
+        <label for="New Medicine Type">New Medicine Type</label>
+        <input type="text" class="text1" id="npname" name="nMtype" required />
+        <br />
+        <br />
+
+        <label for="Old Company Name">Old Company Name:</label>
+        <b>{{ editMed[i][2] }}</b>
+        <br />
+        <br />
+
+        <label for="New Address">New Company Name</label>
+        <input
+          type="text"
+          class="text1"
+          id="naddress"
+          name="nCompanyName"
+          required
+        />
+        <br />
+        <br />
+
+        <label for="Old ExpiryDate">Old ExpiryDate:</label>
+        <b>{{ editMed[i][3] }}</b>
+        <br />
+        <br />
+
+        <label for="New ExpiryDate">New Expiry Date</label>
+        <input
+          type="text"
+          class="text1"
+          id="nage"
+          name="nExpiryDate"
+          required
+        />
+        <br />
+        <br />
+
+        <label for="Old MedicinePrice">Old Medicine Price:</label>
+        <b>{{ editMed[i][4] }}</b>
+        <br />
+        <br />
+
+        <label for="MedicinePrice">New MedicinePrice</label>
+        <input
+          type="text"
+          class="text1"
+          id="nbed"
+          name="nMedicinePrice"
+          required
+        />
+        <br />
+        <br />
+
+        <label for="id">Doctor SSN:</label>
+        <b>{{ editMed[i][5] }}</b>
+        <br />
+        <br />
+
+        <button type="submit" class="ibutton">Update</button>
+        <br />
+        <br />
+        <a class="ibutton" href="{{ url_for('staffPage') }}">
+          Return to Home Page
+        </a>
+        <br />
+        <br />
+        <a class="ibutton" href="{{ url_for('update_medicine') }}">
+          Return to Update Medicine Page
+        </a>
+      </form>
+
+      {% with messages = get_flashed_messages() %} {% if messages %} {% for msg
+      in messages %}
+      <p style="font-weight: bolder;">{{ msg }}</p>
+      {% endfor %} {% endif %} {% endwith%} {% endfor %}
+    </div>
+  </body>
+</html>
